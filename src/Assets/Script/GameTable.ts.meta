@@ -1,0 +1,25 @@
+fileFormatVersion: 2
+guid: 92c72987e1291eb42b0d3e80b1ce9d1a
+importerOverride: ZEPETO.Script.Compiler:ZEPETO.Script:TypescriptAssetImporter
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: -1123457745, guid: 54cf806323ffe4418a4ce4cc63fe6b9d, type: 3}
+  isAssemblyDeclarations: 0
+  assembly: 
+  generateAllTypes: 1
+  types: []
+  generateWrapper: 0
+  overrideWrapperTypes: 0
+  wrapperTypes: []
+  WrapperFilters: []
+  wrapperOutputDirectory: Generated
+  compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
+    { value: true });\r\nconst ZEPETO_Script_1 = require(\"ZEPETO.Script\");\r\nclass
+    GameTable extends ZEPETO_Script_1.ZepetoScriptBehaviour {\r\n}\r\nexports.default
+    = GameTable;\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiR2FtZVRhYmxlLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiR2FtZVRhYmxlLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7O0FBQUEsaURBQXNEO0FBS3RELE1BQXFCLFNBQVUsU0FBUSxxQ0FBcUI7Q0FLM0Q7QUFMRCw0QkFLQyJ9","assetPath":"Assets/Script/GameTable.ts","manifest":{"properties":[{"assembly":"mscorlib","name":"tableIndex","type":"System.Int32","isArray":false,"enumKeys":[],"enumValues":[],"attributes":[]}],"name":"GameTable","description":""},"isCompiled":true}'
+  typescriptHash: 1bbede87ec571e3ac5774a383bdff704

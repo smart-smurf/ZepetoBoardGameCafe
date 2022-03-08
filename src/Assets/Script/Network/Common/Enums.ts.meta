@@ -19,12 +19,12 @@ ScriptedImporter:
   WrapperFilters: []
   wrapperOutputDirectory: Generated
   compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
-    { value: true });\r\nexports.GameState = void 0;\r\nvar GameType;\r\n(function
+    { value: true });\r\nexports.GameState = exports.GameType = void 0;\r\nvar GameType;\r\n(function
     (GameType) {\r\n    GameType[GameType[\"BlackJack\"] = 0] = \"BlackJack\";\r\n   
-    GameType[GameType[\"TicTacToe\"] = 1] = \"TicTacToe\";\r\n})(GameType || (GameType
-    = {}));\r\nvar GameState;\r\n(function (GameState) {\r\n    GameState[GameState[\"NONE\"]
-    = 0] = \"NONE\";\r\n    GameState[GameState[\"LOADING\"] = 1] = \"LOADING\";\r\n   
-    GameState[GameState[\"FAILED\"] = 2] = \"FAILED\";\r\n    GameState[GameState[\"COMPLETE\"]
-    = 3] = \"COMPLETE\";\r\n})(GameState = exports.GameState || (exports.GameState
-    = {}));\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiRW51bXMuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJFbnVtcy50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7QUFBQSxJQUFLLFFBR0o7QUFIRCxXQUFLLFFBQVE7SUFDVCxpREFBYSxDQUFBO0lBQ2IsaURBQWEsQ0FBQTtBQUNqQixDQUFDLEVBSEksUUFBUSxLQUFSLFFBQVEsUUFHWjtBQUVELElBQVksU0FLWDtBQUxELFdBQVksU0FBUztJQUNqQix5Q0FBUSxDQUFBO0lBQ1IsK0NBQVcsQ0FBQTtJQUNYLDZDQUFVLENBQUE7SUFDVixpREFBWSxDQUFBO0FBQ2hCLENBQUMsRUFMVyxTQUFTLEdBQVQsaUJBQVMsS0FBVCxpQkFBUyxRQUtwQiJ9","assetPath":"Assets/Script/Network/Common/Enums.ts","manifest":{"properties":[],"name":"Enums","description":""},"isCompiled":true}'
-  typescriptHash: 326643301a03b8131e80499998c7c127
+    GameType[GameType[\"TicTacToe\"] = 1] = \"TicTacToe\";\r\n})(GameType = exports.GameType
+    || (exports.GameType = {}));\r\nvar GameState;\r\n(function (GameState) {\r\n   
+    GameState[GameState[\"NONE\"] = 0] = \"NONE\";\r\n    GameState[GameState[\"LOADING\"]
+    = 1] = \"LOADING\";\r\n    GameState[GameState[\"FAILED\"] = 2] = \"FAILED\";\r\n   
+    GameState[GameState[\"COMPLETE\"] = 3] = \"COMPLETE\";\r\n})(GameState = exports.GameState
+    || (exports.GameState = {}));\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiRW51bXMuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJFbnVtcy50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7QUFBQSxJQUFZLFFBR1g7QUFIRCxXQUFZLFFBQVE7SUFDaEIsaURBQWEsQ0FBQTtJQUNiLGlEQUFhLENBQUE7QUFDakIsQ0FBQyxFQUhXLFFBQVEsR0FBUixnQkFBUSxLQUFSLGdCQUFRLFFBR25CO0FBRUQsSUFBWSxTQUtYO0FBTEQsV0FBWSxTQUFTO0lBQ2pCLHlDQUFRLENBQUE7SUFDUiwrQ0FBVyxDQUFBO0lBQ1gsNkNBQVUsQ0FBQTtJQUNWLGlEQUFZLENBQUE7QUFDaEIsQ0FBQyxFQUxXLFNBQVMsR0FBVCxpQkFBUyxLQUFULGlCQUFTLFFBS3BCIn0=","assetPath":"Assets/Script/Network/Common/Enums.ts","manifest":{"properties":[],"name":"Enums","description":""},"isCompiled":true}'
+  typescriptHash: 5036746853bc7572c053f1d74b38c898

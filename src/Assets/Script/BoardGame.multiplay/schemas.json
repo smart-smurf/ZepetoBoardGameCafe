@@ -1,6 +1,7 @@
 {
 "State" : {"players" : "map"},
-"Player" : {"sessionId" : "string","hash" : "string","userId" : "string","hash" : "TransformShema","state" : "number","animationClip" : "string"},
+"Player" : {"sessionId" : "string","hash" : "TransformShema","userId" : "string","state" : "number","animationClip" : "string"},
 "Vector3Shema" : {"x" : "float32","y" : "float32","z" : "float32"},
-"TransformShema" : {"position" : "Vector3Shema","rotate" : "Vector3Shema"}
+"TransformShema" : {"position" : "Vector3Shema","rotate" : "Vector3Shema"},
+"GameTable" : {"tableId" : "int32","gameType" : "int32","status" : "int32","maxPlayer" : "int32","owner" : "Player","players" : {"array" : "Player"}}
 }
