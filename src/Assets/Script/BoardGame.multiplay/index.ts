@@ -1,6 +1,7 @@
 import { Sandbox, SandboxOptions, SandboxPlayer } from "ZEPETO.Multiplay";
 import { GameTable, Player, TransformShema } from "ZEPETO.Multiplay.Schema";  
-import CreateGame from "./Network/messages/creategame";
+import ChangeTransform from "./Network/messages/changeTransform";
+import CreateGame from "./Network/messages/createGame";
 import { addPlayer, leavePlayer } from "./Network/service/player";
 import Server from "./server";
 
@@ -11,7 +12,12 @@ export default class extends Sandbox {
     onCreate(options: SandboxOptions) {  
         Server.Instance = this; 
         this.createBlackJackInstance(2);   
+
+        // 방 생성코드 동기화
         new CreateGame().Regist();
+
+        // 위치 동기화
+        new ChangeTransform().Regist();
     }
 
     onJoin(client: SandboxPlayer) {
@@ -23,7 +29,7 @@ export default class extends Sandbox {
     }
  
 
-    
+
     createBlackJackInstance(count: number) {
         for (let i = 0; i < count; i++) { 
             const table = new GameTable();

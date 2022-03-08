@@ -1,4 +1,3 @@
-import { SandboxPlayer } from "ZEPETO.Multiplay";
 import { GameTable, Player } from "ZEPETO.Multiplay.Schema";
 import Server from "../../server";
  

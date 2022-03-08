@@ -1,4 +1,12 @@
+import { Vector3Shema } from "ZEPETO.Multiplay.Schema"
+
  
+
+export interface ReqChangeTransform{
+    position : Vector3Shema,
+    rotation : Vector3Shema
+}
+
 export interface ReqCreateGame{
     tableId : number
 }
