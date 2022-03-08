@@ -1,10 +1,10 @@
 import { GameObject, WaitUntil, WaitWhile } from 'UnityEngine';
-import { Room } from 'ZEPETO.Multiplay'
+import { Room, RoomData } from 'ZEPETO.Multiplay'
 import { State } from 'ZEPETO.Multiplay.Schema';
 import { ZepetoScriptBehaviour } from 'ZEPETO.Script' 
 import { ZepetoWorldMultiplay } from 'ZEPETO.World';
 import MessageDispatcher from './MessageDispatcher';
-import { GameState } from './Network/Common/Enums';
+import { GameState } from './Network/Common/Enums'; 
 
 
  
@@ -28,6 +28,10 @@ export default class GameManager extends ZepetoScriptBehaviour {
     private roomJoined : boolean;
 
 
+    public get Room() : Room{
+        return this.room;
+    }
+
     *GameInitialize() {
         this.gameState = GameState.LOADING;
         console.log("[Initialize]wait room create..");
@@ -49,15 +53,17 @@ export default class GameManager extends ZepetoScriptBehaviour {
     }
 
 
+
+   
     Start() { 
         this.multiplay.RoomCreated += (room: Room) => {
             this.room = room;
-            MessageDispatcher.Instance.Init(this.room);
+            MessageDispatcher.Instance.Init(this.room);  
         };
 
         this.multiplay.RoomJoined += (room: Room) => {
             this.roomJoined = true;
-            room.OnStateChange += this.OnStateChange; 
+            room.OnStateChange += this.OnStateChange;  
         };
 
         this.StartCoroutine(this.GameInitialize());

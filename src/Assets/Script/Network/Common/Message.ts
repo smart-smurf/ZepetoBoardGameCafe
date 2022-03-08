@@ -1,28 +1,27 @@
  
-declare interface ReqCreateGame{
-    table : number
-    gameType : number
+export interface ReqCreateGame{
+    tableId : number
 }
 
-declare interface ReqJoinGame{
-    table : Number
+export interface ReqJoinGame{
+    tableId : Number
 }
 
-declare interface ReqLeaveGame{
+export interface ReqLeaveGame{
     
 }
 
-declare interface ReqPlayGame{
+export interface ReqPlayGame{
     
 }
 
-declare interface NotifyCreateBoardGame{
+export interface NotifyCreateBoardGame{
     table : number,
     gameType : number,
     ownerId : number
 }
  
-declare interface NotifyGameResult{
+export interface NotifyGameResult{
     table : number,
     gameType : number, 
     winnerSessionIds : Array<string>,
