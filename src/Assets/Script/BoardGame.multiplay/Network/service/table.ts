@@ -1,16 +1,17 @@
 import { SandboxPlayer } from "ZEPETO.Multiplay";
 import { GameTable, Player } from "ZEPETO.Multiplay.Schema";
+import Server from "../.."; 
 
 export function getPlayer(client: SandboxPlayer) {
-    return this.sandbox.state.players.get(client.sessionId);
+    return Server.Instance.state.players.get(client.sessionId);
 }
 
 /**
  * 테이블 에서 플레이어 퇴장
  */
-export function removePlayerOnTable(player: PlaybackDirectionyer) {
+export function removePlayerOnTable(player: Player) {
     if (player.currentTableId !== 0) {
-        const table = this.sandbox.state.tables.get(player.currentTableId.toString());
+        const table = Server.Instance.state.tables.get(player.currentTableId.toString());
         table.players = table.players.filter(x => x.sessionId !== player.sessionId);
     }
 }
@@ -25,13 +26,10 @@ export function addPlayerToTable(gameTable: GameTable, player: Player) {
         if (gameTable.players.length < gameTable.maxPlayer) {
             gameTable.owner = player;
             gameTable.players.push(player);
-            player.currentTableId = gameTable.tableId;
-
-            let notifyMsg: NotifyCreateGame = {
-                onwerSessionId: player.sessionId,
-                table: gameTable.tableId,
-            }
-            this.sandbox.broadcast("NotifyCreateGame", notifyMsg);
+            player.currentTableId = gameTable.tableId; 
+        }
+        else{
+            throw new Error("정원초과 테스트 exception");
         }
     }
     else {
