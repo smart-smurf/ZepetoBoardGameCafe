@@ -20,8 +20,12 @@ ScriptedImporter:
   wrapperOutputDirectory: Generated
   compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
     { value: true });\r\nconst ZEPETO_Script_1 = require(\"ZEPETO.Script\");\r\nconst
-    GameManager_1 = require(\"./GameManager\");\r\nclass NetworkPlayer extends ZEPETO_Script_1.ZepetoScriptBehaviour
-    {\r\n    ReqCreateGame(data) {\r\n        GameManager_1.default.Instance.Room.Send(\"ReqCreateGame\",
-    data);\r\n    }\r\n    NotifyCreateGame() {\r\n    }\r\n}\r\nexports.default
-    = NetworkPlayer;\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiTmV0d29ya1BsYXllci5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIk5ldHdvcmtQbGF5ZXIudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7QUFBQSxpREFBc0Q7QUFDdEQsK0NBQXdDO0FBT3hDLE1BQXFCLGFBQWMsU0FBUSxxQ0FBcUI7SUFHNUQsYUFBYSxDQUFDLElBQW9CO1FBQzlCLHFCQUFXLENBQUMsUUFBUSxDQUFDLElBQUksQ0FBQyxJQUFJLENBQUMsZUFBZSxFQUFFLElBQUksQ0FBQyxDQUFDO0lBQzFELENBQUM7SUFFRCxnQkFBZ0I7SUFFaEIsQ0FBQztDQUNKO0FBVkQsZ0NBVUMifQ==","assetPath":"Assets/Script/NetworkPlayer.ts","manifest":{"properties":[],"name":"NetworkPlayer","description":""},"isCompiled":true}'
-  typescriptHash: cec2cdfaf5d205a1afc5d403a1035554
+    GameManager_1 = require(\"./GameManager\");\r\nconst MessageDispatcher_1 = require(\"./MessageDispatcher\");\r\nclass
+    NetworkPlayer extends ZEPETO_Script_1.ZepetoScriptBehaviour {\r\n    Awake()
+    {\r\n        MessageDispatcher_1.default.Instance.Regist(\"NotifyCreateGame\",
+    this.NotifyCreateGame);\r\n    }\r\n    ReqCreateGame(data) {\r\n        console.log(\"ReqCreateGame\");\r\n       
+    GameManager_1.default.Instance.Room.Send(\"ReqCreateGame\", data);\r\n    }\r\n   
+    NotifyCreateGame(message) {\r\n        console.log(\"NotifyCreateGame\");\r\n       
+    console.log(message.onwerSessionId);\r\n        console.log(message.table);\r\n   
+    }\r\n}\r\nexports.default = NetworkPlayer;\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiTmV0d29ya1BsYXllci5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIk5ldHdvcmtQbGF5ZXIudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7QUFBQSxpREFBc0Q7QUFDdEQsK0NBQXdDO0FBQ3hDLDJEQUFvRDtBQU9wRCxNQUFxQixhQUFjLFNBQVEscUNBQXFCO0lBQzVELEtBQUs7UUFDRCwyQkFBaUIsQ0FBQyxRQUFRLENBQUMsTUFBTSxDQUFtQixrQkFBa0IsRUFBRSxJQUFJLENBQUMsZ0JBQWdCLENBQUMsQ0FBQztJQUNuRyxDQUFDO0lBQ00sYUFBYSxDQUFDLElBQW9CO1FBQ3JDLE9BQU8sQ0FBQyxHQUFHLENBQUMsZUFBZSxDQUFDLENBQUM7UUFDN0IscUJBQVcsQ0FBQyxRQUFRLENBQUMsSUFBSSxDQUFDLElBQUksQ0FBQyxlQUFlLEVBQUUsSUFBSSxDQUFDLENBQUM7SUFFMUQsQ0FBQztJQUVELGdCQUFnQixDQUFDLE9BQTBCO1FBRXZDLE9BQU8sQ0FBQyxHQUFHLENBQUMsa0JBQWtCLENBQUMsQ0FBQztRQUNoQyxPQUFPLENBQUMsR0FBRyxDQUFDLE9BQU8sQ0FBQyxjQUFjLENBQUMsQ0FBQztRQUNwQyxPQUFPLENBQUMsR0FBRyxDQUFDLE9BQU8sQ0FBQyxLQUFLLENBQUMsQ0FBQztJQUMvQixDQUFDO0NBQ0o7QUFoQkQsZ0NBZ0JDIn0=","assetPath":"Assets/Script/NetworkPlayer.ts","manifest":{"properties":[],"name":"NetworkPlayer","description":""},"isCompiled":true}'
+  typescriptHash: 4c1a03afea5759e7c53a5fd3524fbc93

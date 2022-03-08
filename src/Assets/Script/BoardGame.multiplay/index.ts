@@ -1,6 +1,7 @@
 import { create } from "ts-node";
 import { Sandbox, SandboxOptions, SandboxPlayer } from "ZEPETO.Multiplay";
 import { GameTable, Player, TransformShema } from "ZEPETO.Multiplay.Schema";
+import { NotifyCreateGame } from "./Common/Message";
 
 export default class extends Sandbox {
 
@@ -9,8 +10,14 @@ export default class extends Sandbox {
     onCreate(options: SandboxOptions) {  
         this.createBlackJackInstance(2);
         this.onMessage("ReqCreateGame", (client , message)=>{
-            console.log('[ReqCreateGame] :' + message);
-            console.log('messge : ' + message.tableId);
+            
+            let notifyMsg : NotifyCreateGame = { 
+                onwerSessionId : client.sessionId,
+                table : 0
+            }
+
+            console.log("ReqCreateGame, try Notify");
+            this.broadcast("NotifyCreateGame", notifyMsg);
         }); 
     }
 

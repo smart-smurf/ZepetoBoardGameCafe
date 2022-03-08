@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 8b6b7000135c612439453ead98e4125f
+guid: af4858b5661e23f489f76e7a4a90583a
 importerOverride: ZEPETO.Script.Compiler:ZEPETO.Script:TypescriptAssetImporter
 ScriptedImporter:
   internalIDToNameTable: []
@@ -19,5 +19,5 @@ ScriptedImporter:
   WrapperFilters: []
   wrapperOutputDirectory: Generated
   compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
-    { value: true });\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiTWVzc2FnZS5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIk1lc3NhZ2UudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiJ9","assetPath":"Assets/Script/Network/Common/Message.ts","manifest":{"properties":[],"name":"Message","description":""},"isCompiled":true}'
+    { value: true });\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiTWVzc2FnZS5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIk1lc3NhZ2UudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiJ9","assetPath":"Assets/Script/BoardGame.multiplay/Common/Message.ts","manifest":{"properties":[],"name":"Message","description":""},"isCompiled":true}'
   typescriptHash: 4a6e5361ce32e3905887cf8100f45a5f

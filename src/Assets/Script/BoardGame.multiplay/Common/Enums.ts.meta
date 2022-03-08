@@ -1,0 +1,30 @@
+fileFormatVersion: 2
+guid: 8689d24cd9aca0746ab4bfad75886a43
+importerOverride: ZEPETO.Script.Compiler:ZEPETO.Script:TypescriptAssetImporter
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: -1123457745, guid: 54cf806323ffe4418a4ce4cc63fe6b9d, type: 3}
+  isAssemblyDeclarations: 0
+  assembly: 
+  generateAllTypes: 1
+  types: []
+  generateWrapper: 0
+  overrideWrapperTypes: 0
+  wrapperTypes: []
+  WrapperFilters: []
+  wrapperOutputDirectory: Generated
+  compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
+    { value: true });\r\nexports.GameState = exports.GameType = void 0;\r\nvar GameType;\r\n(function
+    (GameType) {\r\n    GameType[GameType[\"BlackJack\"] = 0] = \"BlackJack\";\r\n   
+    GameType[GameType[\"TicTacToe\"] = 1] = \"TicTacToe\";\r\n})(GameType = exports.GameType
+    || (exports.GameType = {}));\r\nvar GameState;\r\n(function (GameState) {\r\n   
+    GameState[GameState[\"NONE\"] = 0] = \"NONE\";\r\n    GameState[GameState[\"LOADING\"]
+    = 1] = \"LOADING\";\r\n    GameState[GameState[\"FAILED\"] = 2] = \"FAILED\";\r\n   
+    GameState[GameState[\"COMPLETE\"] = 3] = \"COMPLETE\";\r\n})(GameState = exports.GameState
+    || (exports.GameState = {}));\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiRW51bXMuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJFbnVtcy50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7QUFBQSxJQUFZLFFBR1g7QUFIRCxXQUFZLFFBQVE7SUFDaEIsaURBQWEsQ0FBQTtJQUNiLGlEQUFhLENBQUE7QUFDakIsQ0FBQyxFQUhXLFFBQVEsR0FBUixnQkFBUSxLQUFSLGdCQUFRLFFBR25CO0FBRUQsSUFBWSxTQUtYO0FBTEQsV0FBWSxTQUFTO0lBQ2pCLHlDQUFRLENBQUE7SUFDUiwrQ0FBVyxDQUFBO0lBQ1gsNkNBQVUsQ0FBQTtJQUNWLGlEQUFZLENBQUE7QUFDaEIsQ0FBQyxFQUxXLFNBQVMsR0FBVCxpQkFBUyxLQUFULGlCQUFTLFFBS3BCIn0=","assetPath":"Assets/Script/Network/Common/Enums.ts","manifest":{"properties":[],"name":"Enums","description":""},"isCompiled":true}'
+  typescriptHash: 5036746853bc7572c053f1d74b38c898
