@@ -1,6 +1,6 @@
 import { GameObject, Quaternion, WaitUntil, WaitWhile } from 'UnityEngine';
-import { LocalPlayer, SpawnInfo, ZepetoPlayers } from 'ZEPETO.Character.Controller';
-import { Room, RoomData } from 'ZEPETO.Multiplay'
+import { SpawnInfo, ZepetoPlayers } from 'ZEPETO.Character.Controller';
+import { Room } from 'ZEPETO.Multiplay'
 import { Player, State } from 'ZEPETO.Multiplay.Schema';
 import { ZepetoScriptBehaviour } from 'ZEPETO.Script' 
 import { ZepetoWorldMultiplay } from 'ZEPETO.World';
@@ -8,7 +8,6 @@ import MessageDispatcher from './MessageDispatcher';
 import { GameState } from './Network/Common/Enums'; 
 import NetworkPlayer from './Network/NetworkPlayer'; 
 import { SchemaToVector3 } from './Parser';
-
 
  
  
@@ -112,8 +111,7 @@ export default class GameManager extends ZepetoScriptBehaviour {
 
         this.multiplay.RoomJoined += (room: Room) => {
             this.roomJoined = true;
-            room.OnStateChange += this.OnStateChange;   
-            this.networkPlayer = this.gameObject.AddComponent<NetworkPlayer>();  
+            room.OnStateChange += this.OnStateChange;    
         }; 
 
 
