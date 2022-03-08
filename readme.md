@@ -1,15 +1,9 @@
+ 
+ ## 제페토 공식 멀티플레이 샘플과 비교
 
- 유저들끼리 자유롭게 보드게임 승부가 가능한 보드게임 카페 구현
- - 방에 있는 여분의 보드게임 테이블에 앉아서 자유롭게 플레이 하면 됨 
-  
- 
- 게임 종류 (각 게임별 확장가능한 구조로 n개 테이블로 구성)
- 개발예상기간 : 3-4일
- 
- 
- 
- 
- ## 2인 보드게임 장르 (중 2~3개만 구현)
+개선 프로젝트 및 실험용 프로젝트
+
+## 2인 보드게임 장르 (중 2~3개만 구현)
   4인 게임의 경우 최대한 중간 퇴장자에 대한 처리가 가능한 게임으로 넣기. 
   이런 경우가 아니면 AI코드를 넣어야함. 무난하게 블랙잭 or 홀덤이 좋을 듯.
   
@@ -19,26 +13,19 @@
  - 블랙잭       (4명까지 참여가능)
  - 홀덤         (4명까지 참여가능) 
  - 같은그림찾기(Maple)  (2명까지 참여가능)
- - 
+ 
 
-### Memo
- Table : 보드게임 테이블
+## 현재 문제점 (서버)
+ - case 1 제페토 멀티 예제의  onCreate()  를 보면 각 메세지 별로 처리해야 하는 코드가 많아서 지저분함. 
+ - case 2 제페토 예제서버의  index.ts 를 보면 코드가 너무 길고 복잡함.
+ - 예제에서는 onChangedTransform, onChangedState 밖에 없어 수신받는 메세지가 2개 뿐이지만 만약 메세지 가 100개 가 넘어가는 복잡한 서버를 구현해야 한다면..?
+ - 결론 : 엄청 복잡한 게임의 경우 서버 코드가 관리하기 힘들 정도로 index.ts에 몰리는 현상이 발생
 
- C-S 메세지 정의 
- -  ReqCreateBoardGame (Table)  | 보드게임 생성
- -  ReqJoinBoardGame (Table) | 보드게임에 입장, 시트 배정 
- -  ReqLeaveBoardGame   | 보드게임에서 퇴장시 호출 
- -  ReqStartBoardGame  | 방장(CreateBoardGame 호출자) 가 시작가능
+## 개선 (서버)
+ - index.ts를 관리하기 위해 처리를 [messages](https://github.com/shlifedev/ZepetoBoardGameCafe/tree/main/src/Assets/Script/BoardGame.multiplay/Network/messages) 에서 관리
+ - 실제 스키마에 접근하거나 스키마에서 데이터를 가져오는 서비스 코드 관리는 [service](https://github.com/shlifedev/ZepetoBoardGameCafe/tree/main/src/Assets/Script/BoardGame.multiplay/Network/service) 에서처리
+ - 이렇게 분리만 해도 index.ts는 굉~장히 깔끔해진다.
 
- S-C 메세지 정의
- -  NotifyCreateBoardGame  | 보드게임 생성된 경우 알람 
- -  NotifyJoinBoardGame    | 보드게임 입장시 알람
- -  NotifyLeaveBoardGame   | 보드게임 퇴장시 알람
- -  NotifyStartBoardGame   | 보드게임 시작시 알람
- -  NotifyGameResult       | 게임결과 메세지  
 
- State 정의
- -  SyncTransform
-
- Storage 정의
- -  ZepetoChip             | 보드게임카페 칩
+클라이언트도 개선 작업중
+ 
