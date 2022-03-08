@@ -1,5 +1,5 @@
 import { Sandbox, SandboxOptions, SandboxPlayer } from "ZEPETO.Multiplay";
-import { GameTable, Player, TransformShema } from "ZEPETO.Multiplay.Schema";  
+import { GameTable } from "ZEPETO.Multiplay.Schema";  
 import ChangeState from "./Network/messages/changeState";
 import ChangeTransform from "./Network/messages/changeTransform";
 import CreateGame from "./Network/messages/createGame";

@@ -1,11 +1,13 @@
-import { GameObject, WaitUntil, WaitWhile } from 'UnityEngine';
+import { GameObject, Quaternion, WaitUntil, WaitWhile } from 'UnityEngine';
+import { LocalPlayer, SpawnInfo, ZepetoPlayers } from 'ZEPETO.Character.Controller';
 import { Room, RoomData } from 'ZEPETO.Multiplay'
 import { Player, State } from 'ZEPETO.Multiplay.Schema';
 import { ZepetoScriptBehaviour } from 'ZEPETO.Script' 
 import { ZepetoWorldMultiplay } from 'ZEPETO.World';
 import MessageDispatcher from './MessageDispatcher';
 import { GameState } from './Network/Common/Enums'; 
-import NetworkPlayer from './NetworkPlayer';
+import NetworkPlayer from './Network/NetworkPlayer'; 
+import { SchemaToVector3 } from './Parser';
 
 
  
@@ -23,7 +25,11 @@ export default class GameManager extends ZepetoScriptBehaviour {
     }
     
 
-    public multiplay: ZepetoWorldMultiplay;
+    public multiplay: ZepetoWorldMultiplay; 
+
+    private networkPlayer : NetworkPlayer;
+    public get NetworkPlayer() : NetworkPlayer { return this.networkPlayer; }
+
     private room: Room; 
     private gameState : GameState;
     private roomJoined : boolean;
@@ -43,10 +49,52 @@ export default class GameManager extends ZepetoScriptBehaviour {
     }
 
     
+
+      /**
+     * 플레이어 입장콜백 
+     */
+       private OnJoinPlayer(sessionId: string, player: Player) {
+        console.log(`[OnJoinPlayer] players - sessionId : ${sessionId}`);
+
+        const spawnInfo = new SpawnInfo();
+         
+        const position = SchemaToVector3(player.transform.position);
+        const rotation = SchemaToVector3(player.transform.rotate);
+        spawnInfo.position = position;
+        spawnInfo.rotation = Quaternion.Euler(rotation);
+
+        //캐릭터 생성
+        const isLocal = this.room.SessionId === player.sessionId;
+        ZepetoPlayers.instance.CreatePlayerWithUserId(sessionId, player.userId, spawnInfo, isLocal);
+
+
+    }
+
+    /**
+     * 플레이어 삭제 콜백
+     */
+    private OnRemovePlayer(sessionId: string, player: Player) {
+        console.log(`[OnRemove] players - sessionId : ${sessionId}`);
+        ZepetoPlayers.instance.RemovePlayer(sessionId);
+    }
+
+    
     private OnStateChange(state: State, isFirst: boolean)
     { 
         if(isFirst){
+            state.players.ForEach((sessionId: string, player: Player) => this.OnJoinPlayer(sessionId, player));
+            state.players.OnAdd += (player: Player, sessionId: string) => this.OnJoinPlayer(sessionId, player);
+            state.players.OnRemove += (player: Player, sessionId: string) => this.OnRemovePlayer(sessionId, player);
 
+            ZepetoPlayers.instance.OnAddedLocalPlayer.AddListener(() => {
+ 
+                
+                // 플레이어 설정.. 
+                const myPlayer = ZepetoPlayers.instance.LocalPlayer.zepetoPlayer;
+                const characterGo = myPlayer.character.gameObject; 
+                this.networkPlayer = characterGo.AddComponent<NetworkPlayer>();    
+                this.networkPlayer.Initialize(myPlayer.character, myPlayer);
+            });
         }
         else{
 
@@ -64,14 +112,10 @@ export default class GameManager extends ZepetoScriptBehaviour {
 
         this.multiplay.RoomJoined += (room: Room) => {
             this.roomJoined = true;
-            room.OnStateChange += this.OnStateChange;  
+            room.OnStateChange += this.OnStateChange;   
+            this.networkPlayer = this.gameObject.AddComponent<NetworkPlayer>();  
+        }; 
 
-            let player = this.gameObject.AddComponent<NetworkPlayer>(); 
-            player.ReqCreateGame({
-                tableId : 1001
-            })
-
-        };
 
         this.StartCoroutine(this.GameInitialize());
     }

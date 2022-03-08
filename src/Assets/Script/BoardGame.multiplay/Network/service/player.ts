@@ -1,5 +1,5 @@
 import { SandboxPlayer } from "ZEPETO.Multiplay";
-import { Player, TransformShema } from "ZEPETO.Multiplay.Schema";
+import { Player, TransformSchema } from "ZEPETO.Multiplay.Schema";
 import Server from "../../server";
 
 export function getPlayer(client: SandboxPlayer) {
@@ -13,7 +13,7 @@ export function addPlayer(client: SandboxPlayer){
     player.hash = client.hashCode;
     player.userId = client.userId;
 
-    const transform = new TransformShema();
+    const transform = new TransformSchema();
     player.transform = transform;
     player.currentTableId = 0; 
     Server.Instance.state.players.set(player.sessionId, player);

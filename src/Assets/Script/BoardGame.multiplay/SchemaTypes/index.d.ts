@@ -6,6 +6,7 @@ declare module "ZEPETO.Multiplay.Schema" {
 	interface State extends Schema {
 		players: MapSchema<Player>;
 		tables: MapSchema<GameTable>;
+		test: string;
 	}
 	class Player extends Schema {
 		sessionId: string;
@@ -13,17 +14,17 @@ declare module "ZEPETO.Multiplay.Schema" {
 		hash: string;
 		animationClip: string;
 		state: number;
-		transform: TransformShema;
+		transform: TransformSchema;
 		currentTableId: number;
 	}
-	class Vector3Shema extends Schema {
+	class Vector3Schema extends Schema {
 		x: number;
 		y: number;
 		z: number;
 	}
-	class TransformShema extends Schema {
-		position: Vector3Shema;
-		rotate: Vector3Shema;
+	class TransformSchema extends Schema {
+		position: Vector3Schema;
+		rotate: Vector3Schema;
 	}
 	class GameTable extends Schema {
 		tableId: number;

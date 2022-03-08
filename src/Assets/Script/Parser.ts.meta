@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: c0399e37126641b43ab98d115db8bc2c
+guid: e5720213ceb42c54089615c63698f0d4
 importerOverride: ZEPETO.Script.Compiler:ZEPETO.Script:TypescriptAssetImporter
 ScriptedImporter:
   internalIDToNameTable: []
@@ -18,5 +18,5 @@ ScriptedImporter:
   wrapperTypes: []
   WrapperFilters: []
   wrapperOutputDirectory: Generated
-  compiledResult: '{"source":"","assetPath":"Assets/Script/GameManager.ts","manifest":{"properties":[],"name":"","description":""},"isCompiled":false}'
-  typescriptHash: d419e1a5dd26a52584a176748692b09f
+  compiledResult: '{"source":"","assetPath":"Assets/Script/Parser.ts","manifest":{"properties":[],"name":"","description":""},"isCompiled":false}'
+  typescriptHash: c2afb11f9f6a5dc9441e8c7878dc34e8

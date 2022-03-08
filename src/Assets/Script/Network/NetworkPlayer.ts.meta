@@ -1,0 +1,46 @@
+fileFormatVersion: 2
+guid: 7146f35387b55d04c9115f041b838101
+importerOverride: ZEPETO.Script.Compiler:ZEPETO.Script:TypescriptAssetImporter
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: -1123457745, guid: 54cf806323ffe4418a4ce4cc63fe6b9d, type: 3}
+  isAssemblyDeclarations: 0
+  assembly: 
+  generateAllTypes: 1
+  types: []
+  generateWrapper: 0
+  overrideWrapperTypes: 0
+  wrapperTypes: []
+  WrapperFilters: []
+  wrapperOutputDirectory: Generated
+  compiledResult: "{\"source\":\"\\\"use strict\\\";\\r\\nObject.defineProperty(exports,
+    \\\"__esModule\\\", { value: true });\\r\\nconst ZEPETO_Script_1 = require(\\\"ZEPETO.Script\\\");\\r\\nconst
+    GameManager_1 = require(\\\"../GameManager\\\");\\r\\nconst MessageDispatcher_1
+    = require(\\\"../MessageDispatcher\\\");\\r\\nconst Parser_1 = require(\\\"../Parser\\\");\\r\\nconst
+    UnityEngine_1 = require(\\\"UnityEngine\\\");\\r\\nclass NetworkPlayer extends
+    ZEPETO_Script_1.ZepetoScriptBehaviour {\\r\\n    constructor() {\\r\\n       
+    super(...arguments);\\r\\n        this.transformSyncTick = 0.1;\\r\\n    }\\r\\n   
+    Initialize(zepetoCharacter, zepetoPlayer) {\\r\\n        this.zepetoCharacter
+    = zepetoCharacter;\\r\\n        this.zepetoPlayer = zepetoPlayer;\\r\\n       
+    this.StartCoroutine(this.DoSyncTransform());\\r\\n    }\\r\\n    Start() {\\r\\n       
+    MessageDispatcher_1.default.Instance.Regist(\\\"NotifyCreateGame\\\", this.NotifyCreateGame);\\r\\n   
+    }\\r\\n    // \uC774\uB3D9 \uB3D9\uAE30\uD654\\r\\n    ReqChangeTransform(data)
+    {\\r\\n        GameManager_1.default.Instance.Room.Send(\\\"ReqChangeTransform\\\",
+    data);\\r\\n    }\\r\\n    ReqChangeState(data) {\\r\\n        GameManager_1.default.Instance.Room.Send(\\\"ReqChangeState\\\",
+    data);\\r\\n    }\\r\\n    // \uD14C\uC774\uBE14 \uC0DD\uC131\\r\\n    ReqCreateGame(data)
+    {\\r\\n        GameManager_1.default.Instance.Room.Send(\\\"ReqCreateGame\\\",
+    data);\\r\\n    }\\r\\n    NotifyCreateGame(message) {\\r\\n        console.log(\\\"NotifyCreateGame\\\");\\r\\n       
+    console.log(message.onwerSessionId);\\r\\n        console.log(message.table);\\r\\n   
+    }\\r\\n    *DoSyncTransform() {\\r\\n        while (true) {\\r\\n           
+    console.log('sync transform!');\\r\\n            yield new UnityEngine_1.WaitForSeconds(this.transformSyncTick);\\r\\n           
+    GameManager_1.default.Instance.NetworkPlayer.ReqChangeTransform({\\r\\n               
+    position: Parser_1.Vector3ToSchema(this.zepetoCharacter.transform.position),\\r\\n               
+    rotation: Parser_1.Vector3ToSchema(this.zepetoCharacter.transform.rotation.eulerAngles)\\r\\n           
+    });\\r\\n        }\\r\\n    }\\r\\n}\\r\\nexports.default = NetworkPlayer;\\r\\n//#
+    sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiTmV0d29ya1BsYXllci5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIk5ldHdvcmtQbGF5ZXIudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7QUFBQSxpREFBc0Q7QUFDdEQsZ0RBQXlDO0FBQ3pDLDREQUFxRDtBQUdyRCxzQ0FBNEM7QUFDNUMsNkNBQTZDO0FBTTdDLE1BQXFCLGFBQWMsU0FBUSxxQ0FBcUI7SUFBaEU7O1FBSUksc0JBQWlCLEdBQWMsR0FBRyxDQUFDO0lBNkN2QyxDQUFDO0lBM0NVLFVBQVUsQ0FBQyxlQUFpQyxFQUFFLFlBQTJCO1FBQzVFLElBQUksQ0FBQyxlQUFlLEdBQUcsZUFBZSxDQUFDO1FBQ3ZDLElBQUksQ0FBQyxZQUFZLEdBQUcsWUFBWSxDQUFDO1FBQ2pDLElBQUksQ0FBQyxjQUFjLENBQUMsSUFBSSxDQUFDLGVBQWUsRUFBRSxDQUFDLENBQUM7SUFDaEQsQ0FBQztJQUVELEtBQUs7UUFDRCwyQkFBaUIsQ0FBQyxRQUFRLENBQUMsTUFBTSxDQUFtQixrQkFBa0IsRUFBRSxJQUFJLENBQUMsZ0JBQWdCLENBQUMsQ0FBQztJQUVuRyxDQUFDO0lBQ0QsU0FBUztJQUNGLGtCQUFrQixDQUFDLElBQXlCO1FBQy9DLHFCQUFXLENBQUMsUUFBUSxDQUFDLElBQUksQ0FBQyxJQUFJLENBQUMsb0JBQW9CLEVBQUUsSUFBSSxDQUFDLENBQUM7SUFDL0QsQ0FBQztJQUVNLGNBQWMsQ0FBQyxJQUFxQjtRQUN2QyxxQkFBVyxDQUFDLFFBQVEsQ0FBQyxJQUFJLENBQUMsSUFBSSxDQUFDLGdCQUFnQixFQUFFLElBQUksQ0FBQyxDQUFDO0lBQzNELENBQUM7SUFFRCxTQUFTO0lBQ0YsYUFBYSxDQUFDLElBQW9CO1FBQ3JDLHFCQUFXLENBQUMsUUFBUSxDQUFDLElBQUksQ0FBQyxJQUFJLENBQUMsZUFBZSxFQUFFLElBQUksQ0FBQyxDQUFDO0lBQzFELENBQUM7SUFFRCxnQkFBZ0IsQ0FBQyxPQUEwQjtRQUN2QyxPQUFPLENBQUMsR0FBRyxDQUFDLGtCQUFrQixDQUFDLENBQUM7UUFDaEMsT0FBTyxDQUFDLEdBQUcsQ0FBQyxPQUFPLENBQUMsY0FBYyxDQUFDLENBQUM7UUFDcEMsT0FBTyxDQUFDLEdBQUcsQ0FBQyxPQUFPLENBQUMsS0FBSyxDQUFDLENBQUM7SUFDL0IsQ0FBQztJQUdLLENBQUUsZUFBZTtRQUNuQixPQUFNLElBQUksRUFBQztZQUNQLE9BQU8sQ0FBQyxHQUFHLENBQUMsaUJBQWlCLENBQUMsQ0FBQztZQUMvQixNQUFNLElBQUksNEJBQWMsQ0FBQyxJQUFJLENBQUMsaUJBQWlCLENBQUMsQ0FBQztZQUNqRCxxQkFBVyxDQUFDLFFBQVEsQ0FBQyxhQUFhLENBQUMsa0JBQWtCLENBQUM7Z0JBQ2xELFFBQVEsRUFBRyx3QkFBZSxDQUFDLElBQUksQ0FBQyxlQUFlLENBQUMsU0FBUyxDQUFDLFFBQVEsQ0FBQztnQkFDbkUsUUFBUSxFQUFHLHdCQUFlLENBQUMsSUFBSSxDQUFDLGVBQWUsQ0FBQyxTQUFTLENBQUMsUUFBUSxDQUFDLFdBQVcsQ0FBQzthQUNsRixDQUFDLENBQUE7U0FDTDtJQUNMLENBQUM7Q0FHSjtBQWpERCxnQ0FpREMifQ==\",\"assetPath\":\"Assets/Script/Network/NetworkPlayer.ts\",\"manifest\":{\"properties\":[{\"assembly\":\"ZEPETO.Character.Controller\",\"name\":\"zepetoCharacter\",\"type\":\"ZEPETO.Character.Controller.ZepetoCharacter\",\"isArray\":false,\"enumKeys\":[],\"enumValues\":[],\"attributes\":[]},{\"assembly\":\"ZEPETO.Character.Controller\",\"name\":\"zepetoPlayer\",\"type\":\"ZEPETO.Character.Controller.ZepetoPlayer\",\"isArray\":false,\"enumKeys\":[],\"enumValues\":[],\"attributes\":[]},{\"assembly\":\"mscorlib\",\"name\":\"transformSyncTick\",\"type\":\"System.Single\",\"isArray\":false,\"enumKeys\":[],\"enumValues\":[],\"attributes\":[]}],\"name\":\"NetworkPlayer\",\"description\":\"\"},\"isCompiled\":true}"
+  typescriptHash: dd24e0af17b412cb6be0e43c4e0933d6

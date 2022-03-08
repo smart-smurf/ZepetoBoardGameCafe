@@ -1,4 +1,4 @@
-import { TransformShema, Vector3Shema } from "ZEPETO.Multiplay.Schema";
+import { TransformSchema, Vector3Schema } from "ZEPETO.Multiplay.Schema";
 import { ReqChangeTransform } from "../../Common/Message";
 import Server from "../../server";
 import Protocol from "../protocol";
@@ -10,16 +10,18 @@ export default class ChangeTransform extends Protocol {
 
     public Regist(): void { 
         Server.Instance.onMessage(this.MessageType, (client, message) => {  
+             
              const msg = message as ReqChangeTransform; 
              const player = getPlayer(client);
-             const transform = new TransformShema();
+             const transform = new TransformSchema();
 
-             transform.position = new Vector3Shema();
+             console.log(`수신 : ${msg.position.x} ${msg.position.y} ${msg.position.z}`);
+             transform.position = new Vector3Schema();
              transform.position.x = msg.position.x;
              transform.position.y = msg.position.y;
              transform.position.z = msg.position.z;
 
-             transform.rotate = new Vector3Shema();
+             transform.rotate = new Vector3Schema();
              transform.rotate.x = msg.rotation.x;
              transform.rotate.y = msg.rotation.y;
              transform.rotate.z = msg.rotation.z;
