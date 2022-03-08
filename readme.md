@@ -16,10 +16,11 @@
  
 
 ## 현재 문제점 (서버)
- - case 1 제페토 멀티 예제의  onCreate()  를 보면 각 메세지 별로 처리해야 하는 코드가 많아서 지저분함. 
- - case 2 제페토 예제서버의  index.ts 를 보면 코드가 너무 길고 복잡함.
+ - 제페토 멀티 예제의  onCreate()  를 보면 각 메세지 별로 처리해야 하는 코드가 많아서 지저분함. 
+ - 제페토 예제서버의  index.ts 를 보면 코드가 너무 길고 복잡함.
  - 예제에서는 onChangedTransform, onChangedState 밖에 없어 수신받는 메세지가 2개 뿐이지만 만약 메세지 가 100개 가 넘어가는 복잡한 서버를 구현해야 한다면..?
- - 결론 : 엄청 복잡한 게임의 경우 서버 코드가 관리하기 힘들 정도로 index.ts에 몰리는 현상이 발생
+ 
+  결론 : 엄청 복잡한 게임의 경우 서버 코드가 관리하기 힘들 정도로 index.ts에 몰리는 현상이 발생
 
 ## 개선 (서버)
  - index.ts를 관리하기 위해 처리를 [messages](https://github.com/shlifedev/ZepetoBoardGameCafe/tree/main/src/Assets/Script/BoardGame.multiplay/Network/messages) 에서 관리
