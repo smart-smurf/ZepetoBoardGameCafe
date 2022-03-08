@@ -6,6 +6,9 @@ export interface ReqChangeTransform{
     position : Vector3Shema,
     rotation : Vector3Shema
 }
+export interface ReqChangeState{
+    state : number
+}
 
 export interface ReqCreateGame{
     tableId : number
