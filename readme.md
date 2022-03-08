@@ -25,7 +25,7 @@
 ## 개선 (서버)
  - index.ts를 관리하기 위해 처리를 [messages](https://github.com/shlifedev/ZepetoBoardGameCafe/tree/main/src/Assets/Script/BoardGame.multiplay/Network/messages) 에서 관리
  - 실제 스키마에 접근하거나 스키마에서 데이터를 가져오는 서비스 코드 관리는 [service](https://github.com/shlifedev/ZepetoBoardGameCafe/tree/main/src/Assets/Script/BoardGame.multiplay/Network/service) 에서처리
- - 이렇게 분리만 해도 index.ts는 굉~장히 깔끔해진다.
+ - 이렇게 분리만 해도 [index.ts](https://github.com/shlifedev/ZepetoBoardGameCafe/blob/main/src/Assets/Script/BoardGame.multiplay/index.ts)는 굉~장히 깔끔해진다.
 
 
 클라이언트도 개선 작업중
