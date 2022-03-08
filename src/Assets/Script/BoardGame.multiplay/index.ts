@@ -1,22 +1,16 @@
 import { Sandbox, SandboxOptions, SandboxPlayer } from "ZEPETO.Multiplay";
-import { GameTable, Player, TransformShema } from "ZEPETO.Multiplay.Schema"; 
-import CreateGame from "./Network/messages/creategame";  
+import { GameTable, Player, TransformShema } from "ZEPETO.Multiplay.Schema";  
+import CreateGame from "./Network/messages/creategame";
+import Server from "./server";
 
 
-
-export default class Server extends Sandbox { 
- 
-    private static _instance : Sandbox;
-    public static get Instance() : Sandbox{
-        return this._instance;
-    }
-
+export default class extends Sandbox { 
+  
 
     onCreate(options: SandboxOptions) {  
-        Server._instance = this; 
-        this.createBlackJackInstance(2); 
-        let a = new CreateGame();
-
+        Server.Instance = this; 
+        this.createBlackJackInstance(2);   
+        new CreateGame().Regist();
     }
 
     onJoin(client: SandboxPlayer) {

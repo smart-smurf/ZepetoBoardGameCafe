@@ -1,5 +1,5 @@
-import Server from "../..";
 import { NotifyCreateGame, ReqCreateGame } from "../../Common/Message";
+import Server from "../../server";
 import Protocol from "../protocol";
 import { addPlayerToTable, getPlayer } from "../service/table";
 
