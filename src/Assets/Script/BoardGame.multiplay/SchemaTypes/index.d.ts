@@ -4,9 +4,31 @@ declare module "ZEPETO.Multiplay.Schema" {
 
 
 	interface State extends Schema {
-		players: MapSchema<id>;
+		players: MapSchema<Player>;
+		tables: MapSchema<GameTable>;
 	}
-	class id extends Schema {
-		n: string;
+	class Player extends Schema {
+		sessionId: string;
+		userId: string;
+		hash: string;
+		animationClip: string;
+		state: number;
+		transform: TransformShema;
+		currentGameTable: GameTable;
+	}
+	class Vector3Shema extends Schema {
+		x: number;
+		y: number;
+		z: number;
+	}
+	class TransformShema extends Schema {
+		position: Vector3Shema;
+		rotate: Vector3Shema;
+	}
+	class GameTable extends Schema {
+		tableId: number;
+		gameType: number;
+		status: number;
+		maxPlayer: number;
 	}
 }
