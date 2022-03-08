@@ -25,6 +25,7 @@
 ## 개선 (서버)
  - index.ts를 관리하기 위해 처리를 [messages](https://github.com/shlifedev/ZepetoBoardGameCafe/tree/main/src/Assets/Script/BoardGame.multiplay/Network/messages) 에서 관리
  - 실제 스키마에 접근하거나 스키마에서 데이터를 가져오는 서비스 코드 관리는 [service](https://github.com/shlifedev/ZepetoBoardGameCafe/tree/main/src/Assets/Script/BoardGame.multiplay/Network/service) 에서처리
+ - 위에 언급한 내용들을 실제 처리하기위해 index.ts를 싱글톤으로 만들되, 순환참조를 방지하기 위해 [server.ts](https://github.com/shlifedev/ZepetoBoardGameCafe/blob/main/src/Assets/Script/BoardGame.multiplay/server.ts) 에 싱글턴 
  - 이렇게 분리만 해도 [index.ts](https://github.com/shlifedev/ZepetoBoardGameCafe/blob/main/src/Assets/Script/BoardGame.multiplay/index.ts)는 굉~장히 깔끔해진다.
 
 
