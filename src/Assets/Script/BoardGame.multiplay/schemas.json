@@ -1,0 +1,6 @@
+{
+"State" : {"players" : "map"},
+"Player" : {"sessionId" : "string","hash" : "string","userId" : "string","hash" : "TransformShema","state" : "number","animationClip" : "string"},
+"Vector3Shema" : {"x" : "float32","y" : "float32","z" : "float32"},
+"TransformShema" : {"position" : "Vector3Shema","rotate" : "Vector3Shema"}
+}

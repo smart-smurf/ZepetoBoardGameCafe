@@ -1,0 +1,30 @@
+fileFormatVersion: 2
+guid: ed0b66355c2b3d14f90231649db58c07
+importerOverride: ZEPETO.Script.Compiler:ZEPETO.Script:TypescriptAssetImporter
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: -1123457745, guid: 54cf806323ffe4418a4ce4cc63fe6b9d, type: 3}
+  isAssemblyDeclarations: 0
+  assembly: 
+  generateAllTypes: 1
+  types: []
+  generateWrapper: 0
+  overrideWrapperTypes: 0
+  wrapperTypes: []
+  WrapperFilters: []
+  wrapperOutputDirectory: Generated
+  compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
+    { value: true });\r\nexports.GameState = void 0;\r\nvar GameType;\r\n(function
+    (GameType) {\r\n    GameType[GameType[\"BlackJack\"] = 0] = \"BlackJack\";\r\n   
+    GameType[GameType[\"TicTacToe\"] = 1] = \"TicTacToe\";\r\n})(GameType || (GameType
+    = {}));\r\nvar GameState;\r\n(function (GameState) {\r\n    GameState[GameState[\"NONE\"]
+    = 0] = \"NONE\";\r\n    GameState[GameState[\"LOADING\"] = 1] = \"LOADING\";\r\n   
+    GameState[GameState[\"FAILED\"] = 2] = \"FAILED\";\r\n    GameState[GameState[\"COMPLETE\"]
+    = 3] = \"COMPLETE\";\r\n})(GameState = exports.GameState || (exports.GameState
+    = {}));\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiRW51bXMuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJFbnVtcy50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7QUFBQSxJQUFLLFFBR0o7QUFIRCxXQUFLLFFBQVE7SUFDVCxpREFBYSxDQUFBO0lBQ2IsaURBQWEsQ0FBQTtBQUNqQixDQUFDLEVBSEksUUFBUSxLQUFSLFFBQVEsUUFHWjtBQUVELElBQVksU0FLWDtBQUxELFdBQVksU0FBUztJQUNqQix5Q0FBUSxDQUFBO0lBQ1IsK0NBQVcsQ0FBQTtJQUNYLDZDQUFVLENBQUE7SUFDVixpREFBWSxDQUFBO0FBQ2hCLENBQUMsRUFMVyxTQUFTLEdBQVQsaUJBQVMsS0FBVCxpQkFBUyxRQUtwQiJ9","assetPath":"Assets/Script/Network/Common/Enums.ts","manifest":{"properties":[],"name":"Enums","description":""},"isCompiled":true}'
+  typescriptHash: 326643301a03b8131e80499998c7c127
