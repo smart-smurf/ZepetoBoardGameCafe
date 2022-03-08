@@ -29,7 +29,7 @@ export default class GameManager extends ZepetoScriptBehaviour {
     private roomJoined : boolean;
 
 
-    public get Room() : Room{
+    public get Room() : Room{ 
         return this.room;
     }
 

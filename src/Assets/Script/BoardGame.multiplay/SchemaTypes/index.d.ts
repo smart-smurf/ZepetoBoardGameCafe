@@ -14,7 +14,7 @@ declare module "ZEPETO.Multiplay.Schema" {
 		animationClip: string;
 		state: number;
 		transform: TransformShema;
-		currentGameTable: GameTable;
+		currentTableId: number;
 	}
 	class Vector3Shema extends Schema {
 		x: number;
@@ -30,5 +30,7 @@ declare module "ZEPETO.Multiplay.Schema" {
 		gameType: number;
 		status: number;
 		maxPlayer: number;
+		owner: Player;
+		players: ArraySchema<Player>;
 	}
 }

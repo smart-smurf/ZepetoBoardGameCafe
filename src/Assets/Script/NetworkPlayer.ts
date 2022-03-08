@@ -17,8 +17,7 @@ export default class NetworkPlayer extends ZepetoScriptBehaviour {
         
     }
 
-    NotifyCreateGame(message : NotifyCreateGame){
-        
+    NotifyCreateGame(message : NotifyCreateGame){ 
         console.log("NotifyCreateGame");
         console.log(message.onwerSessionId);
         console.log(message.table); 

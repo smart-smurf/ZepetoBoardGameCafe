@@ -1,8 +1,7 @@
 {
 "State" : {"players" : {"map" : "Player"},"tables" : {"map" : "GameTable"}},
-"Player" : {"sessionId" : "string","userId" : "string","hash" : "string","animationClip" : "string","state" : "number","transform" : "TransformShema","currentGameTable" : "GameTable"},
+"Player" : {"sessionId" : "string","userId" : "string","hash" : "string","animationClip" : "string","state" : "number","transform" : "TransformShema","currentTableId" : "int32"},
 "Vector3Shema" : {"x" : "float32","y" : "float32","z" : "float32"},
 "TransformShema" : {"position" : "Vector3Shema","rotate" : "Vector3Shema"},
-"GameTable" : {"tableId" : "int32","gameType" : "int32","status" : "int32","maxPlayer" : "int32","owner" : "Player","players" : {"array" : "Player"}},
-"GameTable" : {"tableId" : "int32","gameType" : "int32","status" : "int32","maxPlayer" : "int32","maxPlayer" : "int32"}
+"GameTable" : {"tableId" : "int32","gameType" : "int32","status" : "int32","maxPlayer" : "int32","owner" : "Player","players" : {"array" : "Player"}}
 }
