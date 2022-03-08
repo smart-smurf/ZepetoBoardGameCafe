@@ -1,7 +1,8 @@
 import { NotifyCreateGame, ReqCreateGame } from "../../Common/Message";
 import Server from "../../server";
 import Protocol from "../protocol";
-import { addPlayerToTable, getPlayer } from "../service/table";
+import { getPlayer } from "../service/player";
+import { addPlayerToTable } from "../service/table";
 
 export default class CreateGame extends Protocol {  
     public get MessageType(): string {

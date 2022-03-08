@@ -1,6 +1,7 @@
 import { Sandbox, SandboxOptions, SandboxPlayer } from "ZEPETO.Multiplay";
 import { GameTable, Player, TransformShema } from "ZEPETO.Multiplay.Schema";  
 import CreateGame from "./Network/messages/creategame";
+import { addPlayer, leavePlayer } from "./Network/service/player";
 import Server from "./server";
 
 
@@ -14,27 +15,17 @@ export default class extends Sandbox {
     }
 
     onJoin(client: SandboxPlayer) {
-        console.log(`[OnJoinPlayer] ${client.sessionId} ${client.userId}`);
-        const player = new Player();
-        player.sessionId = client.sessionId;
-        player.hash = client.hashCode;
-        player.userId = client.userId;
-
-        const transform = new TransformShema();
-        player.transform = transform;
-        player.currentTableId = 0;
-
-        this.state.players.set(player.sessionId, player);
+        addPlayer(client); 
     }
 
-    onLeave(client: SandboxPlayer, consented?: boolean) {
-        console.log(`[OnLeavePlayer] ${client.sessionId} ${client.userId}`);
-        this.state.players.delete(client.sessionId);
+    onLeave(client: SandboxPlayer, consented?: boolean) { 
+        leavePlayer(client);
     }
  
-    createBlackJackInstance(count: number) {
-        for (let i = 0; i < count; i++) {
 
+    
+    createBlackJackInstance(count: number) {
+        for (let i = 0; i < count; i++) { 
             const table = new GameTable();
             table.maxPlayer = 4;
             table.gameType = 0;

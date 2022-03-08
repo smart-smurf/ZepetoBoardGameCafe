@@ -2,11 +2,7 @@ import { SandboxPlayer } from "ZEPETO.Multiplay";
 import { GameTable, Player } from "ZEPETO.Multiplay.Schema";
 import Server from "../../server";
  
-
-export function getPlayer(client: SandboxPlayer) {
-    return Server.Instance.state.players.get(client.sessionId);
-}
-
+ 
 /**
  * 테이블 에서 플레이어 퇴장
  */
