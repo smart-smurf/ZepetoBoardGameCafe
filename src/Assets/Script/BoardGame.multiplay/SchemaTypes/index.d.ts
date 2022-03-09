@@ -1,5 +1,4 @@
-declare module "ZEPETO.Multiplay.Schema" {
-
+declare module "ZEPETO.Multiplay.Schema" { 
 	import { Schema, MapSchema, ArraySchema } from "@colyseus/schema"; 
 
 

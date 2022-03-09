@@ -1,7 +1,7 @@
 import { GameObject, Quaternion, WaitUntil, WaitWhile } from 'UnityEngine';
 import { SpawnInfo, ZepetoPlayers } from 'ZEPETO.Character.Controller';
 import { Room } from 'ZEPETO.Multiplay'
-import { Player, State } from 'ZEPETO.Multiplay.Schema';
+import { Player, State, Vector3Schema } from 'ZEPETO.Multiplay.Schema';
 import { ZepetoScriptBehaviour } from 'ZEPETO.Script' 
 import { ZepetoWorldMultiplay } from 'ZEPETO.World';
 import MessageDispatcher from './MessageDispatcher';
@@ -38,7 +38,7 @@ export default class GameManager extends ZepetoScriptBehaviour {
         return this.room;
     }
 
-    *GameInitialize() {
+    *GameInitialize() { 
         this.gameState = GameState.LOADING;
         console.log("[Initialize]wait room create..");
         yield new WaitWhile(() => this.room === null); // 방 입장 대기
@@ -92,11 +92,15 @@ export default class GameManager extends ZepetoScriptBehaviour {
                 const myPlayer = ZepetoPlayers.instance.LocalPlayer.zepetoPlayer;
                 const characterGo = myPlayer.character.gameObject; 
                 this.networkPlayer = characterGo.AddComponent<NetworkPlayer>();    
-                this.networkPlayer.Initialize(myPlayer.character, myPlayer);
+                // this.networkPlayer.Initialize(myPlayer.character, myPlayer);
+
+                // state.players.get_Item(this.room.SessionId).transform.OnChange += x=>{
+                //     console.log(x);
+                // };
             });
         }
         else{
-
+                
         }    
     }
 

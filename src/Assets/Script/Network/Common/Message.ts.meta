@@ -20,4 +20,4 @@ ScriptedImporter:
   wrapperOutputDirectory: Generated
   compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
     { value: true });\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiTWVzc2FnZS5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIk1lc3NhZ2UudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiJ9","assetPath":"Assets/Script/Network/Common/Message.ts","manifest":{"properties":[],"name":"Message","description":""},"isCompiled":true}'
-  typescriptHash: 369ec15388f685a20d35eb6d1f9d88bd
+  typescriptHash: a0bc120c29fa6ce720872c816920c498

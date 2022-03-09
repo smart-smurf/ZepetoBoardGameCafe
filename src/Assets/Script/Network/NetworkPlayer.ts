@@ -2,9 +2,8 @@ import { ZepetoScriptBehaviour } from "ZEPETO.Script";
 import GameManager from "../GameManager";
 import MessageDispatcher from "../MessageDispatcher";
 import { NotifyCreateGame, ReqChangeState, ReqChangeTransform, ReqCreateGame } from "./Common/Message"; 
-import { Vector3, WaitForSeconds } from "UnityEngine";
-import { ZepetoCharacter, ZepetoPlayer } from "ZEPETO.Character.Controller";
-import { Vector3Schema } from "ZEPETO.Multiplay.Schema";
+import { WaitForSeconds } from "UnityEngine";
+import { ZepetoCharacter, ZepetoPlayer } from "ZEPETO.Character.Controller";  
 
 
 
@@ -26,7 +25,7 @@ export default class NetworkPlayer extends ZepetoScriptBehaviour {
 
     }
     // 이동 동기화
-    public ReqChangeTransform(data: ReqChangeTransform) {
+    public ReqChangeTransform(data: ReqChangeTransform) { 
         GameManager.Instance.Room.Send("ReqChangeTransform", data);
     }
 
@@ -46,25 +45,24 @@ export default class NetworkPlayer extends ZepetoScriptBehaviour {
     }
 
 
-    SchemaToVector3(vector: Vector3Schema): Vector3 {
-        return new Vector3(vector.x, vector.y, vector.z);
-    }
-    Vector3ToSchema(vector: Vector3): Vector3Schema {
-        const schema = new Vector3Schema();
-        schema.x = vector.x;
-        schema.y = vector.y;
-        schema.z = vector.z;
-        return schema;
-    }
+  
 
 
     public * DoSyncTransform() {
         while (true) {
             console.log('sync transform!');
             yield new WaitForSeconds(this.transformSyncTick);
-            GameManager.Instance.NetworkPlayer.ReqChangeTransform({
-                position: this.Vector3ToSchema(this.zepetoCharacter.transform.position),
-                rotation: this.Vector3ToSchema(this.zepetoCharacter.transform.rotation.eulerAngles)
+            GameManager.Instance.NetworkPlayer.ReqChangeTransform({ 
+                position : {
+                    x : this.zepetoCharacter.transform.position.x,
+                    y : this.zepetoCharacter.transform.position.y,
+                    z : this.zepetoCharacter.transform.position.z
+                },
+                rotation: {
+                    x : this.zepetoCharacter.transform.rotation.eulerAngles.x,
+                    y : this.zepetoCharacter.transform.rotation.eulerAngles.y,
+                    z : this.zepetoCharacter.transform.rotation.eulerAngles.z
+                }
             })
         }
     }

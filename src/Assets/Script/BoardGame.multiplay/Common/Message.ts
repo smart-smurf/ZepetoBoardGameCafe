@@ -1,11 +1,12 @@
-import { Vector3Schema } from "ZEPETO.Multiplay.Schema"
-
- 
-
+interface Vector3{
+    x : number,
+    y : number,
+    z : number
+}
 
 export interface ReqChangeTransform{
-    position : Vector3Schema,
-    rotation : Vector3Schema
+    position : Vector3,
+    rotation : Vector3
 }
 
 export interface ReqChangeState{

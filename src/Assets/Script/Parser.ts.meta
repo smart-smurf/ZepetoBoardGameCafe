@@ -19,12 +19,8 @@ ScriptedImporter:
   WrapperFilters: []
   wrapperOutputDirectory: Generated
   compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
-    { value: true });\r\nexports.Vector3ToSchema = exports.SchemaToVector3 = void
-    0;\r\nconst UnityEngine_1 = require(\"UnityEngine\");\r\nconst ZEPETO_Multiplay_Schema_1
-    = require(\"ZEPETO.Multiplay.Schema\");\r\nfunction SchemaToVector3(vector) {\r\n   
-    return new UnityEngine_1.Vector3(vector.x, vector.y, vector.z);\r\n}\r\nexports.SchemaToVector3
-    = SchemaToVector3;\r\nfunction Vector3ToSchema(vector) {\r\n    const schema
-    = new ZEPETO_Multiplay_Schema_1.Vector3Schema();\r\n    schema.x = vector.x;\r\n   
-    schema.y = vector.y;\r\n    schema.z = vector.z;\r\n    return schema;\r\n}\r\nexports.Vector3ToSchema
-    = Vector3ToSchema;\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiUGFyc2VyLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiUGFyc2VyLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7OztBQUFBLDZDQUFzQztBQUN0QyxxRUFBd0Q7QUFLeEQsU0FBZ0IsZUFBZSxDQUFDLE1BQXFCO0lBQ2pELE9BQU8sSUFBSSxxQkFBTyxDQUFDLE1BQU0sQ0FBQyxDQUFDLEVBQUUsTUFBTSxDQUFDLENBQUMsRUFBRSxNQUFNLENBQUMsQ0FBQyxDQUFDLENBQUM7QUFDckQsQ0FBQztBQUZELDBDQUVDO0FBQ0QsU0FBZ0IsZUFBZSxDQUFDLE1BQWU7SUFDM0MsTUFBTSxNQUFNLEdBQUcsSUFBSSx1Q0FBYSxFQUFFLENBQUM7SUFDbkMsTUFBTSxDQUFDLENBQUMsR0FBRyxNQUFNLENBQUMsQ0FBQyxDQUFDO0lBQ3BCLE1BQU0sQ0FBQyxDQUFDLEdBQUcsTUFBTSxDQUFDLENBQUMsQ0FBQztJQUNwQixNQUFNLENBQUMsQ0FBQyxHQUFHLE1BQU0sQ0FBQyxDQUFDLENBQUM7SUFDcEIsT0FBTyxNQUFNLENBQUM7QUFDbEIsQ0FBQztBQU5ELDBDQU1DIn0=","assetPath":"Assets/Script/Parser.ts","manifest":{"properties":[],"name":"Parser","description":""},"isCompiled":true}'
-  typescriptHash: c2afb11f9f6a5dc9441e8c7878dc34e8
+    { value: true });\r\nexports.SchemaToVector3 = void 0;\r\nconst UnityEngine_1
+    = require(\"UnityEngine\");\r\nfunction SchemaToVector3(vector) {\r\n    return
+    new UnityEngine_1.Vector3(vector.x, vector.y, vector.z);\r\n}\r\nexports.SchemaToVector3
+    = SchemaToVector3;\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiUGFyc2VyLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiUGFyc2VyLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7OztBQUFBLDZDQUFzQztBQU10QyxTQUFnQixlQUFlLENBQUMsTUFBcUI7SUFDakQsT0FBTyxJQUFJLHFCQUFPLENBQUMsTUFBTSxDQUFDLENBQUMsRUFBRSxNQUFNLENBQUMsQ0FBQyxFQUFFLE1BQU0sQ0FBQyxDQUFDLENBQUMsQ0FBQztBQUNyRCxDQUFDO0FBRkQsMENBRUMifQ==","assetPath":"Assets/Script/Parser.ts","manifest":{"properties":[],"name":"Parser","description":""},"isCompiled":true}'
+  typescriptHash: 4011b1245b89018210a44a6d50074325
