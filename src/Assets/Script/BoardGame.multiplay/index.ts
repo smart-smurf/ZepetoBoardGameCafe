@@ -10,9 +10,9 @@ import Server from "./server";
 export default class extends Sandbox { 
   
 
-    onCreate(options: SandboxOptions) {  
+    async onCreate(options: SandboxOptions) {  
         // 싱글턴
-        Server.Instance = this;   
+        Server.Instance = this;    
         // 위치 동기화
         new ChangeTransform().Regist();
         // 캐릭터 애니메이션 동기화

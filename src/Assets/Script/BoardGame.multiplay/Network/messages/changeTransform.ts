@@ -9,11 +9,8 @@ export default class ChangeTransform extends Protocol {
     }
 
     public Regist(): void { 
-        console.log(`${this.MessageType} Registed!`);
-        Server.Instance.onMessage(this.MessageType, (client, message) => {  
-             
-            console.log('hi');
-
+        console.log(`${this.MessageType} Registed!`); 
+        Server.Instance.onMessage(this.MessageType, (client, message) => {   
              const msg = message as ReqChangeTransform; 
              const player = getPlayer(client);
              const transform = new TransformSchema();

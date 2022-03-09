@@ -17,15 +17,15 @@ export default class NetworkPlayer extends ZepetoScriptBehaviour {
     public Initialize(zepetoCharacter: ZepetoCharacter, zepetoPlayer: ZepetoPlayer) {
         this.zepetoCharacter = zepetoCharacter;
         this.zepetoPlayer = zepetoPlayer;
-        this.StartCoroutine(this.DoSyncTransform());
+        this.StartCoroutine(this.DoSyncTransform()); 
     }
 
     Start() {
-        MessageDispatcher.Instance.Regist<NotifyCreateGame>("NotifyCreateGame", this.NotifyCreateGame);
-
+        MessageDispatcher.Instance.Regist<NotifyCreateGame>("NotifyCreateGame", this.NotifyCreateGame); 
     }
     // 이동 동기화
     public ReqChangeTransform(data: ReqChangeTransform) { 
+        console.log(data);
         GameManager.Instance.Room.Send("ReqChangeTransform", data);
     }
 
@@ -52,7 +52,7 @@ export default class NetworkPlayer extends ZepetoScriptBehaviour {
         while (true) {
             console.log('sync transform!');
             yield new WaitForSeconds(this.transformSyncTick);
-            GameManager.Instance.NetworkPlayer.ReqChangeTransform({ 
+            this.ReqChangeTransform({ 
                 position : {
                     x : this.zepetoCharacter.transform.position.x,
                     y : this.zepetoCharacter.transform.position.y,

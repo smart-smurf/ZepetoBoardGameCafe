@@ -91,8 +91,8 @@ export default class GameManager extends ZepetoScriptBehaviour {
                 // 플레이어 설정.. 
                 const myPlayer = ZepetoPlayers.instance.LocalPlayer.zepetoPlayer;
                 const characterGo = myPlayer.character.gameObject; 
-                this.networkPlayer = characterGo.AddComponent<NetworkPlayer>();    
-                // this.networkPlayer.Initialize(myPlayer.character, myPlayer);
+                this.networkPlayer = characterGo.AddComponent<NetworkPlayer>();   
+                this.networkPlayer.Initialize(myPlayer.character, myPlayer);
 
                 // state.players.get_Item(this.room.SessionId).transform.OnChange += x=>{
                 //     console.log(x);
