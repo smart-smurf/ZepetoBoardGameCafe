@@ -93,7 +93,9 @@ export default class GameManager extends ZepetoScriptBehaviour {
                 const characterGo = myPlayer.character.gameObject; 
                 this.networkPlayer = characterGo.AddComponent<NetworkPlayer>();   
                 this.networkPlayer.Initialize(myPlayer.character, myPlayer);
-
+                this.networkPlayer.ReqCreateGame({
+                    tableId : 1001
+                });
                 // state.players.get_Item(this.room.SessionId).transform.OnChange += x=>{
                 //     console.log(x);
                 // };
@@ -116,9 +118,7 @@ export default class GameManager extends ZepetoScriptBehaviour {
         this.multiplay.RoomJoined += (room: Room) => {
             this.roomJoined = true;
             room.OnStateChange += this.OnStateChange;    
-        }; 
-
-
+        };  
         this.StartCoroutine(this.GameInitialize());
     }
 }

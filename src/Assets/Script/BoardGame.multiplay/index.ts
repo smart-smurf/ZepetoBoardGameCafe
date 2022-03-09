@@ -13,6 +13,7 @@ export default class extends Sandbox {
     async onCreate(options: SandboxOptions) {  
         // 싱글턴
         Server.Instance = this;    
+ 
         // 위치 동기화
         new ChangeTransform().Regist();
         // 캐릭터 애니메이션 동기화
