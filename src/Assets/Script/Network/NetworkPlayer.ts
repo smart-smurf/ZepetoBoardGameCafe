@@ -4,8 +4,7 @@ import MessageDispatcher from "../MessageDispatcher";
 import { NotifyCreateGame, ReqChangeState, ReqChangeTransform, ReqCreateGame } from "./Common/Message"; 
 import { WaitForSeconds } from "UnityEngine";
 import { ZepetoCharacter, ZepetoPlayer } from "ZEPETO.Character.Controller";  
-import { RoomData } from "ZEPETO.Multiplay";
-import NetworkHelper from "./NetworkHelper";
+import { RoomData } from "ZEPETO.Multiplay"; 
 
 
 
