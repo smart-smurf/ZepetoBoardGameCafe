@@ -18,23 +18,5 @@ ScriptedImporter:
   wrapperTypes: []
   WrapperFilters: []
   wrapperOutputDirectory: Generated
-  compiledResult: "{\"source\":\"\\\"use strict\\\";\\r\\nObject.defineProperty(exports,
-    \\\"__esModule\\\", { value: true });\\r\\nconst ZEPETO_Multiplay_1 = require(\\\"ZEPETO.Multiplay\\\");\\r\\nclass
-    NetworkHelper {\\r\\n    static CreatePacket(data, name = null, root = null)
-    {\\r\\n        // \uB8F8\uB370\uC774\uD130\uAC00 \uC5C6\uB294\uACBD\uC6B0 \uC0DD\uC131\\r\\n       
-    if (root === null) {\\r\\n            root = new ZEPETO_Multiplay_1.RoomData();
-    // \uCCAB \uC9C4\uC785\uC2DC\uC5D4 \uB8E8\uD2B8 \uB8F8\uB370\uC774\uD130\uAC00
-    \uB41C\uB2E4. \\r\\n            console.log(\\\"\uCD5C\uCD08 \uBD80\uBAA8\uC0DD\uC131\\\");\\r\\n       
-    }\\r\\n        else {\\r\\n            console.log(`${name} : ${data} \uB97C
-    \uBD80\uBAA8\uC5D0 \uB123\uC74C`);\\r\\n            root.Add(name, data);\\r\\n       
-    }\\r\\n        //\uB300\uC0C1\uC758 \uD504\uB85C\uD37C\uD2F0\uB97C \uC77D\uB294\uB2E4.\\r\\n       
-    const properties = Object.getOwnPropertyNames(data);\\r\\n        // \uD504\uB85C\uD37C\uD2F0\uAC00
-    1\uAC1C \uC774\uC0C1\uC778\uACBD\uC6B0 RoomData\uB97C \uC0DD\uC131\uD6C4 \uC0C1\uC704
-    \uB8F8\uB370\uC774\uD130\uC5D0 \uCD94\uAC00\uD55C\uB2E4.\\r\\n        if (properties.length
-    >= 1) {\\r\\n            properties.forEach(x => {\\r\\n                const
-    roomData = new ZEPETO_Multiplay_1.RoomData();\\r\\n                const targetProp
-    = data[x]; // object\\r\\n                const propName = x;\\r\\n               
-    return this.CreatePacket(targetProp, propName, roomData);\\r\\n            });\\r\\n       
-    }\\r\\n        return root;\\r\\n    }\\r\\n}\\r\\nexports.default = NetworkHelper;\\r\\n//#
-    sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiTmV0d29ya0hlbHBlci5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIk5ldHdvcmtIZWxwZXIudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7QUFBQSx1REFBNEM7QUFHNUMsTUFBcUIsYUFBYTtJQUN2QixNQUFNLENBQUMsWUFBWSxDQUFDLElBQVUsRUFBRSxPQUFnQixJQUFJLEVBQUUsT0FBa0IsSUFBSTtRQUMvRSxnQkFBZ0I7UUFDaEIsSUFBRyxJQUFJLEtBQUssSUFBSSxFQUFDO1lBQ2IsSUFBSSxHQUFHLElBQUksMkJBQVEsRUFBRSxDQUFDLENBQUMsdUJBQXVCO1lBQzlDLE9BQU8sQ0FBQyxHQUFHLENBQUMsU0FBUyxDQUFDLENBQUM7U0FDMUI7YUFDRztZQUNBLE9BQU8sQ0FBQyxHQUFHLENBQUMsR0FBRyxJQUFJLE1BQU0sSUFBSSxXQUFXLENBQUMsQ0FBQztZQUMxQyxJQUFJLENBQUMsR0FBRyxDQUFDLElBQUksRUFBRSxJQUFJLENBQUMsQ0FBQztTQUN4QjtRQUVGLGdCQUFnQjtRQUNmLE1BQU0sVUFBVSxHQUFHLE1BQU0sQ0FBQyxtQkFBbUIsQ0FBQyxJQUFJLENBQUMsQ0FBQztRQUVwRCw4Q0FBOEM7UUFDOUMsSUFBRyxVQUFVLENBQUMsTUFBTSxJQUFJLENBQUMsRUFBQztZQUN0QixVQUFVLENBQUMsT0FBTyxDQUFDLENBQUMsQ0FBQSxFQUFFO2dCQUNsQixNQUFNLFFBQVEsR0FBRyxJQUFJLDJCQUFRLEVBQUUsQ0FBQztnQkFDaEMsTUFBTSxVQUFVLEdBQUcsSUFBSSxDQUFDLENBQUMsQ0FBQyxDQUFDLENBQUMsU0FBUztnQkFDckMsTUFBTSxRQUFRLEdBQUcsQ0FBQyxDQUFDO2dCQUNuQixPQUFPLElBQUksQ0FBQyxZQUFZLENBQUMsVUFBVSxFQUFFLFFBQVEsRUFBRSxRQUFRLENBQUMsQ0FBQTtZQUM1RCxDQUFDLENBQUMsQ0FBQztTQUNOO1FBRUQsT0FBTyxJQUFJLENBQUM7SUFDaEIsQ0FBQztDQUNKO0FBM0JELGdDQTJCQyJ9\",\"assetPath\":\"Assets/Script/Network/NetworkHelper.ts\",\"manifest\":{\"properties\":[],\"name\":\"NetworkHelper\",\"description\":\"\"},\"isCompiled\":true}"
-  typescriptHash: ebc095f3d7ff6d2cb04323f72d357d1b
+  compiledResult: '{"source":"","assetPath":"Assets/Script/Network/NetworkHelper.ts","manifest":{"properties":[],"name":"","description":""},"isCompiled":false}'
+  typescriptHash: 20cd7fb59459f02fb88190017f2cfa36

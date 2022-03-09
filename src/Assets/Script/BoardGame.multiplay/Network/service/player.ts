@@ -4,6 +4,13 @@ import Server from "../../server";
 
 export function getPlayer(client: SandboxPlayer) {
     return Server.Instance.state.players.get(client.sessionId);
+} 
+
+export function updatePlayerTransform(client: SandboxPlayer, transform : TransformSchema){
+    const player = getPlayer(client);
+    if(player !== null){ 
+       player.transform = transform;
+    }
 }
 
 export function addPlayer(client: SandboxPlayer){
