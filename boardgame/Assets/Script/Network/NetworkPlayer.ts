@@ -38,12 +38,12 @@ export default class NetworkPlayer extends ZepetoScriptBehaviour {
         const rotation = new RoomData();
         position.Add("x", data.position.x);
         position.Add("y", data.position.y);
-        position.Add("z", data.position.z);
+        position.Add("z", data.position.z); 
         rotation.Add("x", data.rotation.x);
         rotation.Add("y", data.rotation.y);
         rotation.Add("z", data.rotation.z);
-        packet.Add("position", position);
-        packet.Add("rotation", rotation);   
+        packet.Add("position", position.GetObject());
+        packet.Add("rotation", rotation.GetObject());     
         GameManager.Instance.Room.Send("ReqChangeTransform", packet.GetObject());   
     }
  

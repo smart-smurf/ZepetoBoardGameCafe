@@ -7,18 +7,16 @@ import GameManager from '../GameManager'
 export default class NetworkPlayerSynchronizer extends ZepetoScriptBehaviour {
     player: Player;
     zepetoPlayer: ZepetoPlayer;
-    initialized: boolean;
     Initialize(player: Player, zepetoPlayer: ZepetoPlayer) {
+ 
+        this.player = player;
+        this.zepetoPlayer = zepetoPlayer;
 
-        if (this.initialized === false) {
-            this.initialized = true;
-            this.player = player;
-            this.zepetoPlayer = zepetoPlayer;
-            this.player.OnChange += () => {
-                this.zepetoPlayer.character.MoveToPosition (new Vector3(this.player.transform.position.x, this.player.transform.position.y, this.player.transform.position.z));
-                if (player.state === CharacterState.JumpIdle || player.state === CharacterState.JumpMove)
+        console.log("[NetworkPlayerSynchronizer] Initialize..");
+        this.player.OnChange += () => {
+            this.zepetoPlayer.character.MoveToPosition(new Vector3(this.player.transform.position.x, this.player.transform.position.y, this.player.transform.position.z));
+            if (player.state === CharacterState.JumpIdle || player.state === CharacterState.JumpMove)
                 zepetoPlayer.character.Jump();
-            }  
         }
     }
 

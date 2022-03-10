@@ -10,10 +10,9 @@ export default class ChangeTransform extends Protocol {
 
     public Regist(): void { 
         console.log(`${this.MessageType} Registed!`); 
-        Server.Instance.onMessage(this.MessageType, (client, message) => {    
-            
-             console.log(Object.getOwnPropertyNames(message).length); 
-             const msg = message as ReqChangeTransform;  
+        Server.Instance.onMessage(this.MessageType, (client, message) => {  
+             console.log(`msg received ${message.position.x} ${message.position.y} ${message.position.z}`)
+             const msg = message as ReqChangeTransform;   
              const transform = new TransformSchema();   
              transform.position = new Vector3Schema();
              transform.position.x = msg.position.x;
@@ -22,8 +21,7 @@ export default class ChangeTransform extends Protocol {
              transform.rotate = new Vector3Schema();
              transform.rotate.x = msg.rotation.x;
              transform.rotate.y = msg.rotation.y;
-             transform.rotate.z = msg.rotation.z;
-             
+             transform.rotate.z = msg.rotation.z; 
              updatePlayerTransform(client, transform);
         });
     }

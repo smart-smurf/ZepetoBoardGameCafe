@@ -9,7 +9,11 @@ export function getPlayer(client: SandboxPlayer) {
 export function updatePlayerTransform(client: SandboxPlayer, transform : TransformSchema){
     const player = getPlayer(client);
     if(player !== null){ 
+        console.log(`player ${player.sessionId} transform update to ${transform.position.x},${transform.position.y},${transform.position.z}`)
        player.transform = transform;
+    }
+    else{
+        throw new Error(`Cannot found player ${client.sessionId}`);
     }
 }
 
