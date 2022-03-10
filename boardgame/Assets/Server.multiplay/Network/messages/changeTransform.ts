@@ -1,8 +1,8 @@
 import { TransformSchema, Vector3Schema } from "ZEPETO.Multiplay.Schema";
-import { NotifyCreateGame, ReqChangeTransform } from "../../Common/Message";
+import { ReqChangeTransform } from "../../Common/Message";
 import Server from "../../server";
 import Protocol from "../protocol";
-import { getPlayer, updatePlayerTransform } from "../service/player"; 
+import { updatePlayerTransform } from "../service/player"; 
 export default class ChangeTransform extends Protocol {  
     public get MessageType(): string {
         return "ReqChangeTransform"
