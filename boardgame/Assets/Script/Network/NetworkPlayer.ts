@@ -19,6 +19,11 @@ export default class NetworkPlayer extends ZepetoScriptBehaviour {
         this.zepetoCharacter = zepetoCharacter;
         this.zepetoPlayer = zepetoPlayer;
         this.StartCoroutine(this.DoSyncTransform()); 
+        this.zepetoCharacter.OnChangedState.AddListener( (prev, cur)=>{
+            this.ReqChangeState({
+               state : this.zepetoCharacter.CurrentState 
+            });
+        });
     }
 
     Start() {
@@ -42,8 +47,10 @@ export default class NetworkPlayer extends ZepetoScriptBehaviour {
         GameManager.Instance.Room.Send("ReqChangeTransform", packet.GetObject());   
     }
  
-    public ReqChangeState(data: ReqChangeState) {
-        GameManager.Instance.Room.Send("ReqChangeState", data);
+    public ReqChangeState(data: ReqChangeState) { 
+        const packet = new RoomData();
+        packet.Add("state", data.state);
+        GameManager.Instance.Room.Send("ReqChangeState", packet.GetObject());
     }
 
     // 테이블 생성
