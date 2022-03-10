@@ -18,5 +18,34 @@ ScriptedImporter:
   wrapperTypes: []
   WrapperFilters: []
   wrapperOutputDirectory: Generated
-  compiledResult: '{"source":"","assetPath":"Assets/Script/Network/NetworkHelper.ts","manifest":{"properties":[],"name":"","description":""},"isCompiled":false}'
-  typescriptHash: 20cd7fb59459f02fb88190017f2cfa36
+  compiledResult: "{\"source\":\"\\\"use strict\\\";\\r\\nObject.defineProperty(exports,
+    \\\"__esModule\\\", { value: true });\\r\\nconst ZEPETO_Multiplay_1 = require(\\\"ZEPETO.Multiplay\\\");\\r\\nclass
+    NetworkHelper {\\r\\n    static IsValue(length) {\\r\\n        return length
+    === 0;\\r\\n    }\\r\\n    static SerializeSingleObject(data) {\\r\\n       
+    const roomData = new ZEPETO_Multiplay_1.RoomData();\\r\\n        const props
+    = Object.getOwnPropertyNames(data);\\r\\n        props.forEach(prop => {\\r\\n           
+    const value = data[prop];\\r\\n            const fieldName = prop;\\r\\n           
+    roomData.Add(fieldName, value);\\r\\n        });\\r\\n        return roomData;\\r\\n   
+    }\\r\\n    /**\\r\\n     * \uD604\uC7AC\uB294 \uAC1D\uCCB4 \uB0B4\uC5D0 \uAC1D\uCCB4\uAC00
+    \uC911\uCCA9\uC0C1\uD0DC\uB85C \uC788\uB294\uACBD\uC6B0\uC5D0\uB294 \uC9C1\uB82C\uD654
+    \uBD88\uAC00\uB2A5\uD568.\\r\\n     */\\r\\n    static SingleObjectToRoomData(data)
+    {\\r\\n        return this.SerializeSingleObject(data);\\r\\n    }\\r\\n}\\r\\nexports.default
+    = NetworkHelper;\\r\\n// export default class NetworkHelper {\\r\\n//     public
+    static CreatePacket(data : any, name : string = null, root : RoomData = null)
+    : RoomData {\\r\\n//         // \uB8F8\uB370\uC774\uD130\uAC00 \uC5C6\uB294\uACBD\uC6B0
+    \uC0DD\uC131\\r\\n//         if(root === null){\\r\\n//             root = new
+    RoomData(); // \uCCAB \uC9C4\uC785\uC2DC\uC5D4 \uB8E8\uD2B8 \uB8F8\uB370\uC774\uD130\uAC00
+    \uB41C\uB2E4. \\r\\n//             console.log(\\\"\uCD5C\uCD08 \uBD80\uBAA8\uC0DD\uC131\\\");\\r\\n//        
+    }\\r\\n//         else{\\r\\n//             console.log(`${name} : ${data} \uB97C
+    \uBD80\uBAA8\uC5D0 \uB123\uC74C`);\\r\\n//             root.Add(name, data);\\r\\n//        
+    }\\r\\n//        //\uB300\uC0C1\uC758 \uD504\uB85C\uD37C\uD2F0\uB97C \uC77D\uB294\uB2E4.\\r\\n//        
+    const properties = Object.getOwnPropertyNames(data);\\r\\n//         // \uD504\uB85C\uD37C\uD2F0\uAC00
+    1\uAC1C \uC774\uC0C1\uC778\uACBD\uC6B0 RoomData\uB97C \uC0DD\uC131\uD6C4 \uC0C1\uC704
+    \uB8F8\uB370\uC774\uD130\uC5D0 \uCD94\uAC00\uD55C\uB2E4.\\r\\n//         if(properties.length
+    >= 1){\\r\\n//             properties.forEach(x=>{  \\r\\n//                
+    const roomData = new RoomData();\\r\\n//                 const targetProp = data[x];
+    // object\\r\\n//                 const propName = x;   \\r\\n//                
+    return this.CreatePacket(targetProp, propName, roomData)\\r\\n//            
+    });\\r\\n//         }  \\r\\n//         return root;\\r\\n//     }\\r\\n// }\\r\\n//#
+    sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiTmV0d29ya0hlbHBlci5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIk5ldHdvcmtIZWxwZXIudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7QUFDQSx1REFBNEM7QUFFNUMsTUFBcUIsYUFBYTtJQUN0QixNQUFNLENBQUMsT0FBTyxDQUFDLE1BQWM7UUFDakMsT0FBTyxNQUFNLEtBQUssQ0FBQyxDQUFDO0lBQ3hCLENBQUM7SUFFTyxNQUFNLENBQUMscUJBQXFCLENBQUMsSUFBUztRQUMxQyxNQUFNLFFBQVEsR0FBRyxJQUFJLDJCQUFRLEVBQUUsQ0FBQztRQUNoQyxNQUFNLEtBQUssR0FBRyxNQUFNLENBQUMsbUJBQW1CLENBQUMsSUFBSSxDQUFDLENBQUM7UUFDL0MsS0FBSyxDQUFDLE9BQU8sQ0FBQyxJQUFJLENBQUMsRUFBRTtZQUNqQixNQUFNLEtBQUssR0FBRyxJQUFJLENBQUMsSUFBSSxDQUFDLENBQUM7WUFDekIsTUFBTSxTQUFTLEdBQUcsSUFBSSxDQUFDO1lBQ3ZCLFFBQVEsQ0FBQyxHQUFHLENBQUMsU0FBUyxFQUFFLEtBQUssQ0FBQyxDQUFDO1FBQ25DLENBQUMsQ0FBQyxDQUFDO1FBQ0gsT0FBTyxRQUFRLENBQUM7SUFDcEIsQ0FBQztJQUNEOztPQUVHO0lBQ0ksTUFBTSxDQUFDLHNCQUFzQixDQUFDLElBQVM7UUFDMUMsT0FBTyxJQUFJLENBQUMscUJBQXFCLENBQUMsSUFBSSxDQUFDLENBQUM7SUFDNUMsQ0FBQztDQUNKO0FBckJELGdDQXFCQztBQUlELHVDQUF1QztBQUN2Qyx3R0FBd0c7QUFDeEcsMkJBQTJCO0FBQzNCLDZCQUE2QjtBQUM3Qiw2REFBNkQ7QUFDN0Qsc0NBQXNDO0FBQ3RDLFlBQVk7QUFDWixnQkFBZ0I7QUFDaEIseURBQXlEO0FBQ3pELG9DQUFvQztBQUNwQyxZQUFZO0FBRVosMEJBQTBCO0FBQzFCLCtEQUErRDtBQUUvRCx5REFBeUQ7QUFDekQsc0NBQXNDO0FBQ3RDLHdDQUF3QztBQUN4QyxtREFBbUQ7QUFDbkQsd0RBQXdEO0FBQ3hELHlDQUF5QztBQUN6QywyRUFBMkU7QUFDM0Usa0JBQWtCO0FBQ2xCLGNBQWM7QUFFZCx1QkFBdUI7QUFDdkIsUUFBUTtBQUNSLElBQUkifQ==\",\"assetPath\":\"Assets/Script/Network/NetworkHelper.ts\",\"manifest\":{\"properties\":[],\"name\":\"NetworkHelper\",\"description\":\"\"},\"isCompiled\":true}"
+  typescriptHash: 0c1695b31bf9365a0725fab1d0aa9570

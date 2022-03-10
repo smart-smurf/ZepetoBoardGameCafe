@@ -4,8 +4,8 @@ import MessageDispatcher from "../MessageDispatcher";
 import { NotifyCreateGame, ReqChangeState, ReqChangeTransform, ReqCreateGame } from "./Common/Message"; 
 import { WaitForSeconds } from "UnityEngine";
 import { ZepetoCharacter, ZepetoPlayer } from "ZEPETO.Character.Controller";  
-import { RoomData } from "ZEPETO.Multiplay"; 
-
+import { RoomData } from "ZEPETO.Multiplay";   
+import NetworkHelper from './NetworkHelper';
 
 
 
@@ -33,17 +33,9 @@ export default class NetworkPlayer extends ZepetoScriptBehaviour {
     
     // 이동 동기화
     public ReqChangeTransform(data: ReqChangeTransform) {
-        const packet = new RoomData();
-        const position = new RoomData();
-        const rotation = new RoomData();
-        position.Add("x", data.position.x);
-        position.Add("y", data.position.y);
-        position.Add("z", data.position.z); 
-        rotation.Add("x", data.rotation.x);
-        rotation.Add("y", data.rotation.y);
-        rotation.Add("z", data.rotation.z);
-        packet.Add("position", position.GetObject());
-        packet.Add("rotation", rotation.GetObject());     
+        const packet = new RoomData();   
+        packet.Add("position", NetworkHelper.SingleObjectToRoomData(data.position).GetObject()) ;
+        packet.Add("rotation", NetworkHelper.SingleObjectToRoomData(data.rotation).GetObject());     
         GameManager.Instance.Room.Send("ReqChangeTransform", packet.GetObject());   
     }
  
