@@ -23,24 +23,24 @@ export class Game extends GameBase {
     public cards = Array<Card>();
 
 
-    public OnPlayerJoin(client: SandboxPlayer): void {
+    public onPlayerJoin(client: SandboxPlayer): void {
         const player = getPlayer(client);
         addPlayerToTable(this.gameTable, player);
         this.players.push(new Player(player));
     }
 
-    public OnPlayerLeave(client: SandboxPlayer): void {
+    public onPlayerLeave(client: SandboxPlayer): void {
         const player = getPlayer(client);
         removePlayerOnTable(this.gameTable, player);
         this.players = this.players.filter(x => x.refPlayerState.sessionId !== player.sessionId);
     }
 
-    public GetPlayer(client: SandboxPlayer): Player {
+    public getPlayer(client: SandboxPlayer): Player {
         const player = getPlayer(client);
         return this.players.find(x => x.refPlayerState.sessionId === player.sessionId);
     }
 
-    public InitializeCardList() {
+    public initializeCardList() {
         this.cards = [];
         const shapeCount = 4;
         const min = 1; // A
@@ -60,10 +60,12 @@ export class Game extends GameBase {
     /**
      * 플레이어에게 카드지급
      */
-    public GiveCard(player: Player) {
+    public giveCard(player: Player) {
         const card = this.cards.pop();
-        player.AddCard(card);
+        player.addCard(card);
     }  
+
+    
 
     private shuffle(array : Array<Card>) {
         let currentIndex = array.length, randomIndex; 

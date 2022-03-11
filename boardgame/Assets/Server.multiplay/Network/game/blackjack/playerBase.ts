@@ -6,15 +6,15 @@ export class PlayerBase {
     }
     protected cards = Array<Card>(); 
 
-    public AddCard(card : Card){
+    public addCard(card : Card){
         this.cards.push(card);
     }
 
-    public ClearCards(){
+    public clearCardList(){
         this.cards = [];
     }
 
-    public GetCards(){
+    public getCardList(){
         return this.cards;
     } 
 }
