@@ -50,10 +50,21 @@ export namespace Message.Table{
 
 export namespace Message.BlackJack{
     interface CardInfo{
-        shape : number,
-        value : number
+        shape    : number,
+        value    : number,
+        facedown : boolean
+    }
+
+    interface PlayerInfo{
+        sessionId : string
+        cards     : Array<CardInfo> 
+        isDealer  : boolean
+    }
+
+    interface CurrentGameInfo{
+        players : Array<PlayerInfo> 
     }
     export interface NotifyStartGame{
-        
+        gameInfo : CurrentGameInfo
     }
 }
