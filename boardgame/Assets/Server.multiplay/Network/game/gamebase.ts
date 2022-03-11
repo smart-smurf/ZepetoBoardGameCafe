@@ -12,6 +12,10 @@ export abstract class GameBase{
         this.gameTable.status = state;
     }
 
+
+    /**
+     * 아래 콜백들은 플레이어 퇴장/입장에 대한 콜백인데 당연히 GameTable의 players 을 참조하는 콜백이다.
+     */
     public abstract OnPlayerLeave(client : SandboxPlayer) : void;
     public abstract OnPlayerJoin(client : SandboxPlayer) : void;
 }
