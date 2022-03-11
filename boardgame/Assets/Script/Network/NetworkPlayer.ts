@@ -1,12 +1,11 @@
 import { ZepetoScriptBehaviour } from "ZEPETO.Script";
 import GameManager from "../GameManager";
-import MessageDispatcher from "../MessageDispatcher";
-import { NotifyCreateGame, ReqChangeState, ReqChangeTransform, ReqCreateGame } from "./Common/Message"; 
+import MessageDispatcher from "../MessageDispatcher"; 
 import { WaitForSeconds } from "UnityEngine";
 import { ZepetoCharacter, ZepetoPlayer } from "ZEPETO.Character.Controller";  
 import { RoomData } from "ZEPETO.Multiplay";   
-import NetworkHelper from './NetworkHelper';
-
+import NetworkHelper from './NetworkHelper';  
+import { Message } from "./Common/Message";
 
 
 export default class NetworkPlayer extends ZepetoScriptBehaviour {
@@ -23,34 +22,35 @@ export default class NetworkPlayer extends ZepetoScriptBehaviour {
             this.ReqChangeState({
                state : this.zepetoCharacter.CurrentState 
             });
-        });
+        }); 
     }
 
     Start() {
-        MessageDispatcher.Instance.Regist<NotifyCreateGame>("NotifyCreateGame", this.NotifyCreateGame); 
+        MessageDispatcher.Instance.Regist<Message.Table.NotifyCreateGame>("NotifyCreateGame", this.NotifyCreateGame); 
+        
     }
 
     
     // 이동 동기화
-    public ReqChangeTransform(data: ReqChangeTransform) {
+    public ReqChangeTransform(data: Message.Table.ReqChangeTransform) {
         const packet = new RoomData();   
         packet.Add("position", NetworkHelper.SingleObjectToRoomData(data.position).GetObject()) ;
         packet.Add("rotation", NetworkHelper.SingleObjectToRoomData(data.rotation).GetObject());     
         GameManager.Instance.Room.Send("ReqChangeTransform", packet.GetObject());   
     }
  
-    public ReqChangeState(data: ReqChangeState) { 
+    public ReqChangeState(data: Message.Table.ReqChangeState) { 
         const packet = new RoomData();
         packet.Add("state", data.state);
         GameManager.Instance.Room.Send("ReqChangeState", packet.GetObject());
     }
 
     // 테이블 생성
-    public ReqCreateGame(data: ReqCreateGame) {
+    public ReqCreateGame(data: Message.Table.ReqCreateGame) {
         GameManager.Instance.Room.Send("ReqCreateGame", data);
     }
 
-    NotifyCreateGame(message: NotifyCreateGame) {
+    NotifyCreateGame(message: Message.Table.NotifyCreateGame) {
         console.log("NotifyCreateGame");
         console.log(message.onwerSessionId);
         console.log(message.table);

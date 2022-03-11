@@ -19,5 +19,5 @@ ScriptedImporter:
   WrapperFilters: []
   wrapperOutputDirectory: Generated
   compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
-    { value: true });\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiTWVzc2FnZS5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIk1lc3NhZ2UudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiJ9","assetPath":"Assets/Script/BoardGame.multiplay/Common/Message.ts","manifest":{"properties":[],"name":"Message","description":""},"isCompiled":true}'
-  typescriptHash: 3d0cd7b3610d239607cdfd99a08cc298
+    { value: true });\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiTWVzc2FnZS5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIk1lc3NhZ2UudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiJ9","assetPath":"Assets/Server.multiplay/Common/Message.ts","manifest":{"properties":[],"name":"Message","description":""},"isCompiled":true}'
+  typescriptHash: 2f9de998758b06a4481cef03fd7ec590

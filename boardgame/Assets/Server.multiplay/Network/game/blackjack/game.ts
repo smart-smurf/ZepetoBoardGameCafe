@@ -1,10 +1,12 @@
 import { SandboxPlayer } from "ZEPETO.Multiplay";
+import { GameTableState } from "../../../Common/Enums";
 import { getPlayer } from "../../service/player";
 import { addPlayerToTable, removePlayerOnTable } from "../../service/table";
 import { GameBase } from "../gamebase";
 import { Card } from "./card";
 import { Dealer } from "./dealer";
 import { Player } from "./player";
+import { PlayerBase } from "./playerBase";
 
 /**
  * Rules
@@ -15,7 +17,9 @@ import { Player } from "./player";
  *  
  *  - 배팅 이후 플레이어에게 1장씩 카드를 돌린다.  이때 플레이어 카드는 Face Up (무조건), 딜러는 Face Down으로 돌린다.
  *  - 한번 더 배팅한다. 이떄 딜러 카드는 Face Up으로 돌린다.
- */
+ */ 
+
+ 
 export class Game extends GameBase {
 
     public players = Array<Player>();
@@ -35,12 +39,52 @@ export class Game extends GameBase {
         this.players = this.players.filter(x => x.refPlayerState.sessionId !== player.sessionId);
     }
 
-    public getPlayer(client: SandboxPlayer): Player {
+    public onTick(tick : number){
+        
+    }
+    
+    getPlayer(client: SandboxPlayer): Player {
         const player = getPlayer(client);
         return this.players.find(x => x.refPlayerState.sessionId === player.sessionId);
     }
+ 
+ 
+    /**
+     * 플레이어에게 카드지급
+     */
+    giveCard(player: PlayerBase) {
+        const card = this.cards.pop();
+        player.addCard(card);
+    }  
 
-    public initializeCardList() {
+    
+    onGameStart(){ 
+        this.initializeCardList(); 
+        this.changeState(GameTableState.PLAYING);
+        this.giveFirstCard();
+ 
+    }
+
+    
+
+    giveFirstCard(){
+        // 게임을 시작한다.
+        this.giveCard(this.dealer);
+        this.players.forEach(player=>{
+            this.giveCard(player);
+        }); 
+        this.giveCard(this.dealer);
+        this.players.forEach(player=>{
+            this.giveCard(player);
+        });
+    }
+
+    onPlayerBat(player : Player){
+
+    }
+
+    
+    initializeCardList() {
         this.cards = [];
         const shapeCount = 4;
         const min = 1; // A
@@ -50,24 +94,11 @@ export class Game extends GameBase {
                 const card = new Card(shape, number);
                 this.cards.push(card);
             }
-        }
-        // 카드 셔플 (랜덤셔플)
+        } 
         this.shuffle(this.cards); 
     } 
 
-    
-
-    /**
-     * 플레이어에게 카드지급
-     */
-    public giveCard(player: Player) {
-        const card = this.cards.pop();
-        player.addCard(card);
-    }  
-
-    
-
-    private shuffle(array : Array<Card>) {
+    shuffle(array : Array<Card>) {
         let currentIndex = array.length, randomIndex; 
         while (currentIndex != 0) { 
             randomIndex = Math.floor(Math.random() * currentIndex);

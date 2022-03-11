@@ -7,5 +7,6 @@ export class Player extends PlayerBase{
         this.refPlayerState = refPlayer;
     }
     refPlayerState : PlayerState;
+    batCoin : number;
      
 }

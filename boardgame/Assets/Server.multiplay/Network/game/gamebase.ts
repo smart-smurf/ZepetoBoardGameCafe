@@ -18,4 +18,10 @@ export abstract class GameBase{
      */
     public abstract onPlayerLeave(client : SandboxPlayer) : void;
     public abstract onPlayerJoin(client : SandboxPlayer) : void;
+
+
+    /**
+     * 타이머 계산 등 필요한경우 이곳에서 처리한다.
+     */
+    public abstract onTick(tick : number) : void;
 }

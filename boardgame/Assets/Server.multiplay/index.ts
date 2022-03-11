@@ -6,20 +6,21 @@ import CreateGame from "./Network/messages/createGame";
 import { addPlayer, leavePlayer } from "./Network/service/player";
 import Server from "./server";
 
+class Service{
 
-export default class extends Sandbox { 
-  
+}
+export default class extends Sandbox {  
 
     async onCreate(options: SandboxOptions) {  
         // 싱글턴
         Server.Instance = this;    
  
         // 위치 동기화
-        new ChangeTransform().Regist();
+        new ChangeTransform().regist();
         // 캐릭터 애니메이션 동기화
-        new ChangeState().Regist(); 
+        new ChangeState().regist(); 
         // 방 생성코드 동기화
-        new CreateGame().Regist(); 
+        new CreateGame().regist(); 
 
         // 코드 테스트
         this.createBlackJackInstance(2);    
