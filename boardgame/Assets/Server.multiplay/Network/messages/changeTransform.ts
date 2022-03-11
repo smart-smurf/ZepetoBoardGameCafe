@@ -10,8 +10,7 @@ export default class ChangeTransform extends Protocol {
 
     public regist(): void { 
         console.log(`${this.MessageType} Registed!`); 
-        Server.Instance.onMessage(this.MessageType, (client, message) => {  
-             console.log(`msg received ${message.position.x} ${message.position.y} ${message.position.z}`)
+        Server.Instance.onMessage(this.MessageType, (client, message) => {   
              const msg = message as Message.Table.ReqChangeTransform;   
              const transform = new TransformSchema();   
              transform.position = new Vector3Schema();

@@ -23,6 +23,7 @@ export default class GameManager {
             table.gameType = gameType;
             table.status = GameTableState.READY; 
             table.tableId = this.getInstanceIdOfGameType(gameType) + i;  
+            table.owner   = null;
             this.gameInstanceMap.set(table.tableId, new Game(table)); 
             Server.State.tables.set(table.tableId.toString(), table); 
         }

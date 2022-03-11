@@ -34,10 +34,10 @@ export function removePlayerOnTable(gameTable: GameTable, player: Player) {
 */
 export function addPlayerToTable(gameTable: GameTable, player: Player) {
     // 게임 플레이 상태확인
-    if (gameTable.status === GameTableState.READY) { // 준비 상태인지 확인
-        // 방 정원초과 확인
+    if (gameTable.status === GameTableState.READY) { // 준비 상태인지 확인 
+        if(gameTable.players.find(x => x === player)) throw new Error("이미 방에 입장한 플레이어 입니다.");
         if (gameTable.players.length < gameTable.maxPlayer) { // 정원초과 확인
-            if (gameTable.owner === null) {
+            if (gameTable.owner === null) { 
                 gameTable.owner = player;
             }
             gameTable.players.push(player);
