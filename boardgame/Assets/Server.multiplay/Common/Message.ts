@@ -62,6 +62,7 @@ export namespace Message.BlackJack{
     interface CurrentGameInfo{
         players : Array<PlayerInfo> 
     }
+ 
     export interface NotifyStartGame{
         gameInfo : CurrentGameInfo
     }

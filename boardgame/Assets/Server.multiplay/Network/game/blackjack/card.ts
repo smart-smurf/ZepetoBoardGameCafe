@@ -13,7 +13,7 @@ export class Card {
     }
     shape: Shape;
     number: number;
-    facedown: false;
+    facedown: boolean;
 
     public get FaceDown(): boolean {
         return this.facedown;

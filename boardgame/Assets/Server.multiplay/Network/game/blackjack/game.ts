@@ -53,6 +53,7 @@ export class Game extends GameBase {
      * 플레이어에게 카드지급
      */
     giveCard(player: PlayerBase, isFaceDown : boolean = false) {
+         
         const card = this.cards.pop();
         if(isFaceDown){ 
             player.addCard(card);
@@ -75,7 +76,7 @@ export class Game extends GameBase {
     }
 
     public onHit(player : Player){
-
+        this.giveCard(player);
     }
 
     public onPlayerBat(player : Player, coin : number){
@@ -84,6 +85,31 @@ export class Game extends GameBase {
     
     public onPlayerDie(player : Player){
         player.lose = true;
+    } 
+
+    public onNextTurn(){
+        
+    }
+
+    
+
+    public getCardsSum(player : Player) : number{
+        // 깊은 복사
+        const cards = [...player.getCardList()];
+        cards.sort((a : Card,b : Card)=>{
+            return b.number - a.number;
+        });
+        let sum = 0;
+        let aceCount = cards.filter(x=>x.number === 1).length;
+        cards.forEach(card =>{ 
+            sum += card.number;
+        }); 
+        while(aceCount > 0){
+            aceCount -= 1;
+            sum -= 10;
+        }  
+        console.log(`[getCardsSum Result] ${player.refPlayerState.sessionId} :: ${sum}`);
+        return sum;
     }
 
     giveFirstCard(){

@@ -9,8 +9,10 @@
 
 */
 import { Sandbox } from "ZEPETO.Multiplay";
+import { State } from "ZEPETO.Multiplay.Schema";
 
 export default class Server{
+
     public static get Instance() : Sandbox{
         return this._instance;
     }  
@@ -18,5 +20,10 @@ export default class Server{
         this._instance = value;
     }  
 
+    public static get State() : State{
+        return this._instance.state;
+    }
+
+    
     private static _instance : Sandbox;
 }

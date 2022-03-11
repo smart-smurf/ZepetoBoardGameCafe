@@ -21,6 +21,7 @@ export default class MessageDispatcher extends ZepetoScriptBehaviour {
     private room : Room; 
 
     public Init(room : Room){
+        
         this.room = room;
     }
 
