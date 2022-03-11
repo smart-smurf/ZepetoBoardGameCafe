@@ -25,7 +25,7 @@ export class Game extends GameBase {
     public players = Array<Player>();
     public dealer = new Dealer();
     public cards = Array<Card>();
-
+    
 
     public onPlayerJoin(client: SandboxPlayer): void {
         const player = getPlayer(client);
@@ -52,35 +52,51 @@ export class Game extends GameBase {
     /**
      * 플레이어에게 카드지급
      */
-    giveCard(player: PlayerBase) {
+    giveCard(player: PlayerBase, isFaceDown : boolean = false) {
         const card = this.cards.pop();
-        player.addCard(card);
+        if(isFaceDown){ 
+            player.addCard(card);
+        } 
+        else{
+            card.FaceDown = true;
+            player.addCard(card);
+        }
     }  
 
     
-    onGameStart(){ 
+    public onGameStart(){ 
         this.initializeCardList(); 
         this.changeState(GameTableState.PLAYING);
-        this.giveFirstCard();
- 
+        this.giveFirstCard(); 
+    } 
+
+    public onStand(player : Player){
+
     }
 
+    public onHit(player : Player){
+
+    }
+
+    public onPlayerBat(player : Player, coin : number){
+        player.batCoin = coin;
+    }
     
+    public onPlayerDie(player : Player){
+        player.lose = true;
+    }
 
     giveFirstCard(){
         // 게임을 시작한다.
         this.giveCard(this.dealer);
         this.players.forEach(player=>{
             this.giveCard(player);
-        }); 
-        this.giveCard(this.dealer);
+        });
+        
+        this.giveCard(this.dealer, true);
         this.players.forEach(player=>{
             this.giveCard(player);
         });
-    }
-
-    onPlayerBat(player : Player){
-
     }
 
     

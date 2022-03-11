@@ -7,7 +7,6 @@ export namespace Message.Serialize{
         z : number
     }
 }
-
 export namespace Message.Table{
 
     export interface ReqChangeTransform{
@@ -47,7 +46,6 @@ export namespace Message.Table{
         loserSessionIds :  Array<string> 
     }
 }
-
 export namespace Message.BlackJack{
     interface CardInfo{
         shape    : number,

@@ -7,6 +7,12 @@ export class Player extends PlayerBase{
         this.refPlayerState = refPlayer;
     }
     refPlayerState : PlayerState;
+    
     batCoin : number;
-     
+    lose    : boolean;
+
+    public clear(){
+        this.batCoin = 0;
+        this.lose    = false;
+    }
 }
