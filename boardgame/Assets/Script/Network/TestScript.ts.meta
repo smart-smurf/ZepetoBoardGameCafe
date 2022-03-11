@@ -1,0 +1,28 @@
+fileFormatVersion: 2
+guid: 6d76e9656e8389745a59c19f9992096e
+importerOverride: ZEPETO.Script.Compiler:ZEPETO.Script:TypescriptAssetImporter
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: -1123457745, guid: 54cf806323ffe4418a4ce4cc63fe6b9d, type: 3}
+  isAssemblyDeclarations: 0
+  assembly: 
+  generateAllTypes: 1
+  types: []
+  generateWrapper: 0
+  overrideWrapperTypes: 0
+  wrapperTypes: []
+  WrapperFilters: []
+  wrapperOutputDirectory: Generated
+  compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
+    { value: true });\r\nconst ZEPETO_Script_1 = require(\"ZEPETO.Script\");\r\nconst
+    GameManager_1 = require(\"../GameManager\");\r\nclass TestScript extends ZEPETO_Script_1.ZepetoScriptBehaviour
+    {\r\n    Start() {\r\n        this.buttonJoinGame.onClick.AddListener(() => {\r\n           
+    const np = GameManager_1.default.Instance.NetworkPlayer;\r\n            np.ReqJoinGame({\r\n               
+    tableId: 1001\r\n            });\r\n        });\r\n    }\r\n}\r\nexports.default
+    = TestScript;\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiVGVzdFNjcmlwdC5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIlRlc3RTY3JpcHQudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7QUFDQSxpREFBcUQ7QUFDckQsZ0RBQXlDO0FBRXpDLE1BQXFCLFVBQVcsU0FBUSxxQ0FBcUI7SUFHekQsS0FBSztRQUNELElBQUksQ0FBQyxjQUFjLENBQUMsT0FBTyxDQUFDLFdBQVcsQ0FBQyxHQUFFLEVBQUU7WUFDeEMsTUFBTSxFQUFFLEdBQUcscUJBQVcsQ0FBQyxRQUFRLENBQUMsYUFBYSxDQUFDO1lBQzlDLEVBQUUsQ0FBQyxXQUFXLENBQUM7Z0JBQ1gsT0FBTyxFQUFHLElBQUk7YUFDakIsQ0FBQyxDQUFDO1FBQ1AsQ0FBQyxDQUFDLENBQUM7SUFDUCxDQUFDO0NBRUo7QUFaRCw2QkFZQyJ9","assetPath":"Assets/Script/Network/TestScript.ts","manifest":{"properties":[{"assembly":"UnityEngine.UI","name":"buttonJoinGame","type":"UnityEngine.UI.Button","isArray":false,"enumKeys":[],"enumValues":[],"attributes":[]}],"name":"TestScript","description":""},"isCompiled":true}'
+  typescriptHash: 718b8cd4b8c7cecdf28edceea040044b

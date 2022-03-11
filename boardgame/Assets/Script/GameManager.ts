@@ -90,10 +90,7 @@ export default class GameManager extends ZepetoScriptBehaviour {
                 const myPlayer = ZepetoPlayers.instance.LocalPlayer.zepetoPlayer;
                 const characterGo = myPlayer.character.gameObject;
                 this.networkPlayer = characterGo.AddComponent<NetworkPlayer>();
-                this.networkPlayer.Initialize(myPlayer.character, myPlayer);
-                this.networkPlayer.ReqCreateGame({
-                    tableId: 1001
-                });
+                this.networkPlayer.Initialize(myPlayer.character, myPlayer); 
             });
 
             ZepetoPlayers.instance.OnAddedPlayer.AddListener((sessionId: string) => {

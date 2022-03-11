@@ -2,7 +2,7 @@ import { Sandbox, SandboxOptions, SandboxPlayer } from "ZEPETO.Multiplay";
 import GameManager from "./Network/game/gameManager";
 import ChangeState from "./Network/messages/changeState";
 import ChangeTransform from "./Network/messages/changeTransform";
-import CreateGame from "./Network/messages/createGame";
+import JoinGame from "./Network/messages/gameTable/joinGame";
 import { addPlayer, leavePlayer } from "./Network/service/player";
 import Server from "./server";
  
@@ -26,7 +26,7 @@ export default class extends Sandbox {
         // 캐릭터 애니메이션 동기화
         new ChangeState().regist(); 
         // 방 생성코드 동기화
-        new CreateGame().regist();  
+        new JoinGame().regist();  
         console.log("[onCreate] Done");
     }
 

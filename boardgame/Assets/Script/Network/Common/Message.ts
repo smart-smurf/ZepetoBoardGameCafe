@@ -6,8 +6,10 @@ export namespace Message.Serialize{
         y : number,
         z : number
     }
+    export interface Player{
+        sessionId : string
+    }
 }
-
 export namespace Message.Table{
 
     export interface ReqChangeTransform{
@@ -18,11 +20,7 @@ export namespace Message.Table{
     export interface ReqChangeState{
         state : number
     }
-    
-    export interface ReqCreateGame{
-        tableId : number
-    }
-    
+     
     export interface ReqJoinGame{
         tableId : Number
     }
@@ -31,13 +29,18 @@ export namespace Message.Table{
         
     }
     
-    export interface ReqPlayGame{
+    export interface ReqStartGame{
         
     }
-    
-    export interface NotifyCreateGame{
-        table : number, 
-        onwerSessionId : string
+     
+
+    export interface NotifyJoinGame{
+        senderSessionId : string
+        tableId : number, 
+        onwerSessionId : string,
+        maxPlayer : number,
+        currentPlayer : number,
+        players : Array<Serialize.Player>
     }
      
     export interface NotifyGameResult{
@@ -47,7 +50,6 @@ export namespace Message.Table{
         loserSessionIds :  Array<string> 
     }
 }
-
 export namespace Message.BlackJack{
     interface CardInfo{
         shape    : number,
@@ -64,6 +66,7 @@ export namespace Message.BlackJack{
     interface CurrentGameInfo{
         players : Array<PlayerInfo> 
     }
+ 
     export interface NotifyStartGame{
         gameInfo : CurrentGameInfo
     }
