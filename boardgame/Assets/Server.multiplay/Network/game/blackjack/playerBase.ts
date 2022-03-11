@@ -1,8 +1,8 @@
-import { Card, Shape } from "./card";
+import { Card } from "./card";
 
 export class PlayerBase {
     constructor(){
-        
+
     }
     protected cards = Array<Card>(); 
 

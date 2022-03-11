@@ -19,24 +19,60 @@ import { Player } from "./player";
 export class Game extends GameBase {
 
     public players = Array<Player>();
-    public dealer  = new Dealer();
-    public cards   = Array<Card>(); 
+    public dealer = new Dealer();
+    public cards = Array<Card>();
 
-    
+
     public OnPlayerJoin(client: SandboxPlayer): void {
         const player = getPlayer(client);
-        addPlayerToTable(this.gameTable,  player); 
+        addPlayerToTable(this.gameTable, player);
         this.players.push(new Player(player));
     }
 
     public OnPlayerLeave(client: SandboxPlayer): void {
         const player = getPlayer(client);
         removePlayerOnTable(this.gameTable, player);
-        this.players = this.players.filter(x=> x.refPlayerState.sessionId !== player.sessionId);
+        this.players = this.players.filter(x => x.refPlayerState.sessionId !== player.sessionId);
     }
 
-    public GetPlayer(client:SandboxPlayer): Player{ 
+    public GetPlayer(client: SandboxPlayer): Player {
         const player = getPlayer(client);
-        return this.players.find(x=> x.refPlayerState.sessionId === player.sessionId);
+        return this.players.find(x => x.refPlayerState.sessionId === player.sessionId);
+    }
+
+    public InitializeCardList() {
+        this.cards = [];
+        const shapeCount = 4;
+        const min = 1; // A
+        const max = 13; // K
+        for (let shape = 0; shape < shapeCount; shape++) {
+            for (let number = min; number < max + 1; number++) {
+                const card = new Card(shape, number);
+                this.cards.push(card);
+            }
+        }
+        // 카드 셔플 (랜덤셔플)
+        this.shuffle(this.cards); 
     } 
+
+    
+
+    /**
+     * 플레이어에게 카드지급
+     */
+    public GiveCard(player: Player) {
+        const card = this.cards.pop();
+        player.AddCard(card);
+    }  
+
+    private shuffle(array : Array<Card>) {
+        let currentIndex = array.length, randomIndex; 
+        while (currentIndex != 0) { 
+            randomIndex = Math.floor(Math.random() * currentIndex);
+            currentIndex--; 
+            [array[currentIndex], array[randomIndex]] = [
+                array[randomIndex], array[currentIndex]];
+        } 
+        return array;
+    }
 }

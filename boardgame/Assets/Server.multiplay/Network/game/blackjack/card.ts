@@ -6,6 +6,10 @@ export enum Shape{
     SPADE = 3
 }
 export class Card {
+    constructor(shape : Shape, number : number){
+        this.shape = shape;
+        this.number = number;
+    }
     shape : Shape;
-    value : number; 
+    number : number; 
 } 
