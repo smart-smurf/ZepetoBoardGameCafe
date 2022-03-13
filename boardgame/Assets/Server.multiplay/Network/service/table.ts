@@ -6,11 +6,9 @@ import { GameTableState, GameType } from "../../Common/Enums";
 /**
  * 테이블 에서 플레이어 퇴장
  */
-export function removePlayerOnTable(gameTable: GameTable, player: Player) {
-    const table = Server.Instance.state.tables.get(player.currentTableId.toString());
-    if(table !== gameTable){
-        throw new Error("Valid Failed :: 플레이어의 방과, removePlayerOnTable 인자의 방이 서로 다름.")
-    }
+export function removePlayerOnTable(player: Player) {
+    const table = Server.Instance.state.tables.get(player.currentTableId.toString());  
+    if(table === null) throw new Error("현재 입장중인 방이 없음.");
 
     for (let i = 0; i < table.players.length; i++) {
         if (table.players[i] === player) {
@@ -50,27 +48,8 @@ export function addPlayerToTable(gameTable: GameTable, player: Player) {
     else {
         throw new Error("게임 중간에 참여할 수 없음.");
     }
-}
+} 
 
-
-export function createGameInstance(count: number) {
-    /* 블랙잭 테이블 인스턴스 생성 */
-    for (let i = 0; i < count; i++) {
-        const table = new GameTable();
-        table.maxPlayer = 4;
-        table.gameType = GameType.BlackJack;
-        table.status = GameTableState.READY;
-        table.tableId = 1000 + i;
-        Server.Instance.state.tables.set(table.tableId.toString(), table);
-    }
-
-    /* 틱택토 테이블 인스턴스 생성 */
-    for (let i = 0; i < count; i++) {
-        const table = new GameTable();
-        table.maxPlayer = 2;
-        table.gameType = GameType.TicTacToe;
-        table.status = GameTableState.READY;
-        table.tableId = 2000 + i;
-        Server.Instance.state.tables.set(table.tableId.toString(), table);
-    }
+export function findGameTableById(tableId : number) : GameTable{
+    return Server.Instance.state.tables.get(tableId.toString());
 }

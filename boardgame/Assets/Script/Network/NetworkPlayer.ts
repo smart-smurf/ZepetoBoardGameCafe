@@ -27,6 +27,7 @@ export default class NetworkPlayer extends ZepetoScriptBehaviour {
 
     Start() { 
         MessageDispatcher.Instance.Regist<Message.Table.NotifyJoinGame>("NotifyJoinGame", this.OnNotifyJoinGame);
+        MessageDispatcher.Instance.Regist<Message.Table.NotifyJoinGame>("NotifyLeaveGame", this.OnNotifyLeaveGame);
 
     }
 
@@ -44,13 +45,23 @@ export default class NetworkPlayer extends ZepetoScriptBehaviour {
         packet.Add("state", data.state);
         GameManager.Instance.Room.Send("ReqChangeState", packet.GetObject());
     }
-
-    // 테이블 생성
+ 
     public ReqJoinGame(data: Message.Table.ReqJoinGame) {
+         
+        console.log("ReqJoinGame");
         GameManager.Instance.Room.Send("ReqJoinGame", data);
     }
 
+    public ReqLeaveGame(data: Message.Table.ReqLeaveGame) {
+        console.log("ReqLeaveGame");
+        GameManager.Instance.Room.Send("ReqLeaveGame", data);
+    }
+
     OnNotifyJoinGame(message: Message.Table.NotifyJoinGame) {
+        console.log(` ID ${message.tableId} Players ${message.currentPlayer}/${message.maxPlayer}  Length ${message.players.length}  OwnerSessionId ${message.onwerSessionId}`);
+    }
+
+    OnNotifyLeaveGame(message: Message.Table.NotifyLeaveGame) {
         console.log(` ID ${message.tableId} Players ${message.currentPlayer}/${message.maxPlayer}  Length ${message.players.length}  OwnerSessionId ${message.onwerSessionId}`);
     }
 

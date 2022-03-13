@@ -42,6 +42,17 @@ export namespace Message.Table{
         currentPlayer : number,
         players : Array<Serialize.Player>
     }
+
+    
+    export interface NotifyLeaveGame{
+        senderSessionId : string,
+        onwerSessionId : string,
+        tableId : number, 
+        leavePlayer : string,
+        maxPlayer : number,
+        currentPlayer : number,
+        players : Array<Serialize.Player>
+    }
      
     export interface NotifyGameResult{
         table : number,

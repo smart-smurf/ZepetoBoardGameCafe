@@ -3,6 +3,7 @@ import GameManager from "./Network/game/gameManager";
 import ChangeState from "./Network/messages/changeState";
 import ChangeTransform from "./Network/messages/changeTransform";
 import JoinGame from "./Network/messages/gameTable/joinGame";
+import LeaveGame from "./Network/messages/gameTable/leaveGame";
 import { addPlayer, leavePlayer } from "./Network/service/player";
 import Server from "./server";
  
@@ -27,6 +28,8 @@ export default class extends Sandbox {
         new ChangeState().regist(); 
         // 방 생성코드 동기화
         new JoinGame().regist();  
+        // 방 생성코드 동기화
+        new LeaveGame().regist();  
         console.log("[onCreate] Done");
     }
 

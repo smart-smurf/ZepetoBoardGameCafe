@@ -35,7 +35,7 @@ export class Game extends GameBase {
 
     public onPlayerLeave(client: SandboxPlayer): void {
         const player = getPlayer(client);
-        removePlayerOnTable(this.gameTable, player);
+        removePlayerOnTable(player);
         this.players = this.players.filter(x => x.refPlayerState.sessionId !== player.sessionId);
     }
 
